@@ -1,16 +1,143 @@
-// http://ionicframework.com/docs/theming/
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: #800000;
+  }
 
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+  .content-md {
+    color: #ffffff;
+    background-color: rgba(139, 31, 31, 0.78);
+  }
+
+  
+  
+//   ### Agregar origen git a un proyecto con código 
+//   /*Añade el repositorio remoto al codigo actual*/
+//   ```sh
+//   git remote add origin sinco@192.168.64.152:/home/sinco/repo.git/APIWEB
+//   git pull origin master --allow-unrelated-histories
+  
+//   /*Reset!!*/
+//   git fetch --all
+//   git reset --hard origin/master
+//   ```
+  
+//   ### Clonar proyecto
+  
+//   ```sh
+//   git clone sinco@192.168.64.152:/home/sinco/repo.git/APIWEB ABR.WEB
+//   npm install
+//   git config --global credential.helper store /*Guardar credenciales*/
+//   git status
+//   ```
+//   ### GENERAR VERSION DE PRUEBA
+//   ```sh
+//       $ ionic cordova run android --prod # Compilar en android
+//       $ ionic cordova build browser --prod --release # Compilar para web optimizado!
+//   ```
+  
+//   ### MANEJO GIT SUBIR CÓDIGO
+  
+//   ```sh
+//    git add .
+//    git commit -a -m "Descripcion commit"
+//    git pull origin master  /*Baja cambios*/
+//    git push origin master  /*Subir cambios*/
+  
+//   # Tags
+//    git tag -a v1.1.11 -m "Agregado secciones y PDF"
+//    git push origin --tags
+  
+//    # Branch
+//     git branch "NuevaFuncionalidad"
+//     git checkout "NuevaFuncionalidad"
+//     git push origin NuevaFuncionalidad
+  
+//     # Fusionar cambios en master
+//     git checkout master
+//     git merge "NuevaFuncionalidad"
+  
+//     # Borrar branch
+//     git branch -d "NuevaFuncionalidad"
+//     # Borrar branch remoto
+//     git push origin --delete <branch_name>
+//   ```
+  
+//   /*Resetear log Bajo su propio riesgo!*/
+//   ```sh
+//    git reset --hard numerocommit ---> Pilas!!! no hacer
+//   ```
+  
+//   ### OFFLINE
+//   ```sh
+//   cordova plugin add cordova-sqlite-storage --save
+//   npm install --save @ionic/storage
+//   ```
+  
+//   Implementar en un componente
+  
+//   ```sh
+//   import { Storage } from '@ionic/storage';
+  
+//   export class MyApp {
+//     constructor(storage: Storage) {
+  
+//        // set a key/value
+//        storage.set('name', 'Max');
+  
+//        // Or to get a key/value pair
+//        storage.get('name').then((val) => {
+//          console.log('Your name is', val);
+//        })
+//     }
+//   }
+//   ```
+  
+//   ## CryptoJS
+//   ```sh
+//   npm install typings --save
+//   npm install crypto-js --save
+//   typings install dt~crypto-js --global --save
+  
+//   ## Importar en el componente
+//   import { CryptoJS } from 'crypto-js';
+//   ```
+  
+//   ### Password abr-release-key.keystore
+//   ```sh
+//     mariana2013*
+//   ```
+  
+//   ### Firmar APK
+//   ```sh
+//       1. Quitar plugin no necesario en release
+//       $ cordova plugin rm cordova-plugin-console
+  
+//       2. Generar compilación Release
+//       $ ionic cordova build android --prod --release # --prod para usar AOT en vez de JIT 
+//       $ ionic cordova build browser --prod --release # Compilar para web optimizado!
+//       3. Generar clave privada para firmar el app (No perder archivo generado)
+//       $ "c:\\Program Files\Java\jre1.8.0_121\bin\keytool.exe" -genkey -v -keystore abr-release-key.keystore -alias abrkey -keyalg RSA -keysize 2048 -validity 10000
+  
+//       4. Firmar APK
+//       $ "c:\\Program Files\Java\jdk1.8.0_121\bin\jarsigner.exe" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore abr-release-key.keystore platforms\android\build\outputs\apk\android-release-unsigned.apk abrkey
+  
+  
+//       5. Ejecutar herramienta de alineación: (Eliminar apk producción anterior ./sincoabr.apk)
+//       $ "c:\\Users\USUARIO_EQUIPO\AppData\Local\Android\sdk\build-tools\20.0.0\zipalign.exe" -v 4 platforms\android\build\outputs\apk\android-release-unsigned.apk sincoabr.apk
+//   ```
+  
+//   ## Ionic cloud
+//   ```sh
+//     User: sincosoftapp@gmail.com
+//     Pass: desarrollos1nc0
+    
+//     ionic upload
+    
+//   ```  
