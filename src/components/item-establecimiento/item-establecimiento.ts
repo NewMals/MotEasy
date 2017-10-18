@@ -21,4 +21,5 @@ export class ItemEstablecimientoComponent {
     this.text = 'Hello World';
   }
 
+ 
 }

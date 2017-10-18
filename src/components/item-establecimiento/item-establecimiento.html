@@ -1,13 +1,21 @@
 <!-- Generated template for the ItemEstablecimientoComponent component -->
-<div>
-  <ion-card class="EstContent">
-  <ion-slides>
-    <ion-slide>
-       <img src="https://candela-500700.c.cdn77.org/wp-content/uploads/2016/10/images_2016_09_10_motel0.jpg" alt="">
-    </ion-slide>
-    <ion-slide>
-        {{EST.ESTid}}
-    </ion-slide>
-  </ion-slides>
-  </ion-card>
+<div class="ItEstGlo">
+    <img src="{{EST.ESTfotoPrincipal}}" class="ItEstImg">
+        <ion-row class="ItEstCont">
+            <ion-col style="text-align: left; ">
+                <label>{{EST.ESTnombre}}</label>
+                <!-- <ion-label stacked>sublime</ion-label> -->
+                <ion-label>
+                    <img src="assets/icon/cityscape.png">
+                    <label class="ItEstEspeciales"> Bogota D.C, Chapinero </label>
+                </ion-label>
+            </ion-col>
+            <ion-col style="text-align: right">
+                <label class="ItEstEspeciales"> desde </label> $ 120.000
+                <ion-label>                    
+                    <img src="assets/icon/location-pin.png">
+                    <label class="ItEstEspeciales"> 12 KM</label>
+                </ion-label> 
+            </ion-col>
+        </ion-row>
 </div>

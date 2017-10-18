@@ -4,4 +4,5 @@ export class Establecimiento {
     ESTciudad : number;
     ESTtelefono : number;
     ESTdireccion : string;
+    ESTfotoPrincipal : string;
 }

@@ -1,7 +1,23 @@
 item-establecimiento {
-    .EstContent{
-        color: black;
-        max-height: 50%;
-        max-width: 100%;
+    .ItEstImg{
+        margin: auto;
+        width: 100%;
+        height: 150px;
+        border-radius: 4px;
+    }
+
+    .ItEstGlo{
+        background-color: #510000;
+        font-weight: bold;
+    }
+
+    .ItEstCont{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .ItEstEspeciales{
+        font-size: 8px;
+        color: #9C9C9C;
     }
 }

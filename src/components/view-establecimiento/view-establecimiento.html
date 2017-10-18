@@ -1,0 +1,10 @@
+<!-- Generated template for the ViewEstablecimientoComponent component -->
+<div>
+    <ion-slides id={{EST.ESTid}} pager class="EstContent">
+      <div *ngFor="let s of ejemploSlide">
+        <ion-slide *ngIf="EST.ESTid == s.id">
+          <img src="{{s.PIC}}" class="VwEstImg">
+        </ion-slide>
+      </div>
+    </ion-slides> 
+</div>
