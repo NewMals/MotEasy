@@ -14,7 +14,7 @@ import { Establecimiento } from "../../modelos/Establecimiento";
 export class ItemEstablecimientoComponent {
 
   text: string;
-  @Input() EST : Establecimiento;
+  @Input() ESTitem : Establecimiento;
 
   constructor() {
     console.log('Hello ItemEstablecimientoComponent Component');

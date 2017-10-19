@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Establecimiento } from "../../modelos/Establecimiento";
+import { NavParams } from "ionic-angular";
 /**
  * Generated class for the ViewEstablecimientoComponent component.
  *
@@ -13,11 +14,12 @@ import { Establecimiento } from "../../modelos/Establecimiento";
 export class ViewEstablecimientoComponent {
 
   text: string;
-  @Input() EST : Establecimiento;
+  @Input() ESTview : Establecimiento;
+  favorito : Boolean = false;
 
-  constructor() {
+  constructor(public navParams: NavParams) {
     console.log('Hello ViewEstablecimientoComponent Component');
-    this.text = 'Hello World';
+    //this.ESTview = this.navParams.get('ESTpri');
   }
 
   ejemploSlide: any = [
@@ -39,4 +41,12 @@ export class ViewEstablecimientoComponent {
 
     
   ];
+
+  modFavorito(){
+    if(this.favorito){
+      this.favorito = false;
+    }else {
+      this.favorito = true;
+    }
+  }
 }

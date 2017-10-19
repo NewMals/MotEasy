@@ -5,14 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>PageEstablecimiento</ion-title>
+    <ion-title>{{ESTpage.ESTnombre}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+    <!-- <item-establecimiento [ESTitem]="ESTpage"></item-establecimiento> -->
+  <view-establecimiento [ESTview]="ESTpage"> </view-establecimiento>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Establecimiento } from "../../modelos/Establecimiento";
 
 /**
  * Generated class for the PageEstablecimientoPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PageEstablecimientoPage {
 
+  ESTpage : Establecimiento; 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.ESTpage = this.navParams.get('ESTpri');
   }
 
   ionViewDidLoad() {

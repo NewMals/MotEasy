@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FiltroGeneralComponent } from './filtro-general/filtro-general';
-import { IonicModule } from "ionic-angular";
+import { IonicModule, IonicPageModule } from "ionic-angular";
 import { ItemEstablecimientoComponent } from './item-establecimiento/item-establecimiento';
 import { ViewEstablecimientoComponent } from './view-establecimiento/view-establecimiento';
 @NgModule({
@@ -10,7 +10,8 @@ import { ViewEstablecimientoComponent } from './view-establecimiento/view-establ
     ViewEstablecimientoComponent
 	],
 	imports: [
-		IonicModule
+		IonicModule,
+		IonicPageModule
 	],
 	exports: [
 		FiltroGeneralComponent,
