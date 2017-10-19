@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { PageEstablecimientoPageModule } from "../pages/page-establecimiento/page-establecimiento.module";
+import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { PageEstablecimientoPageModule } from "../pages/page-establecimiento/pag
   ],
   imports: [
     BrowserModule,
-    PageEstablecimientoPageModule,
+    EstablecimientoPageModule,
     IonicModule.forRoot(MyApp)
     
   ],

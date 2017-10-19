@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { Establecimiento } from "../../modelos/Establecimiento";
-import { PageEstablecimientoPage } from "../page-establecimiento/page-establecimiento";
+import { EstablecimientoPage } from "../establecimiento/establecimiento";
 
 @IonicPage({
   name: 'HomePage'
@@ -44,7 +44,7 @@ export class HomePage {
   }
 
   IngresarEST(establecimiento){
-      this.navCtrl.push(PageEstablecimientoPage, {
+      this.navCtrl.push(EstablecimientoPage, {
         ESTpri: establecimiento
       });
   }

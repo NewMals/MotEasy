@@ -3,11 +3,15 @@ import { FiltroGeneralComponent } from './filtro-general/filtro-general';
 import { IonicModule, IonicPageModule } from "ionic-angular";
 import { ItemEstablecimientoComponent } from './item-establecimiento/item-establecimiento';
 import { ViewEstablecimientoComponent } from './view-establecimiento/view-establecimiento';
+import { ItemHabitacionComponent } from './item-habitacion/item-habitacion';
+import { ViewHabitacionComponent } from './view-habitacion/view-habitacion';
 @NgModule({
 	declarations: [
 		FiltroGeneralComponent,
 		ItemEstablecimientoComponent,
-    ViewEstablecimientoComponent
+    ViewEstablecimientoComponent,
+    ItemHabitacionComponent,
+    ViewHabitacionComponent
 	],
 	imports: [
 		IonicModule,
@@ -16,7 +20,9 @@ import { ViewEstablecimientoComponent } from './view-establecimiento/view-establ
 	exports: [
 		FiltroGeneralComponent,
 		ItemEstablecimientoComponent,
-    ViewEstablecimientoComponent
+    ViewEstablecimientoComponent,
+    ItemHabitacionComponent,
+    ViewHabitacionComponent
 	]
 })
 export class ComponentsModule {}

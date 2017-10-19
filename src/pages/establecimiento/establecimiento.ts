@@ -11,10 +11,10 @@ import { Establecimiento } from "../../modelos/Establecimiento";
 
 @IonicPage()
 @Component({
-  selector: 'page-page-establecimiento',
-  templateUrl: 'page-establecimiento.html',
+  selector: 'page-establecimiento',
+  templateUrl: 'establecimiento.html',
 })
-export class PageEstablecimientoPage {
+export class EstablecimientoPage {
 
   ESTpage : Establecimiento; 
 
