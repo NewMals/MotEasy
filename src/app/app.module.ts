@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
+import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { EstablecimientoPageModule } from "../pages/establecimiento/establecimie
   imports: [
     BrowserModule,
     EstablecimientoPageModule,
+    HabitacionPageModule,
     IonicModule.forRoot(MyApp)
     
   ],

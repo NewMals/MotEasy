@@ -12,6 +12,11 @@
 
 
 <ion-content padding>
-    <!-- <item-establecimiento [ESTitem]="ESTpage"></item-establecimiento> -->
   <view-establecimiento [ESTview]="ESTpage"> </view-establecimiento>
+  <br>
+  <div *ngFor="let habitacion of ArrayHAB">
+    <ion-list>
+      <item-habitacion [HABitem]="habitacion" (click)="IngresarHAB(habitacion)"></item-habitacion>    
+    </ion-list>
+  </div>
 </ion-content>

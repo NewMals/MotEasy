@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
-import { Establecimiento } from "../../modelos/Establecimiento";
+import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { EstablecimientoPage } from "../establecimiento/establecimiento";
 
 @IonicPage({
@@ -13,7 +13,7 @@ import { EstablecimientoPage } from "../establecimiento/establecimiento";
 export class HomePage {
   
   //Establecimiento = new Establecimiento;
-  ArrayEST : Array<Establecimiento> = new Array<Establecimiento>();
+  ArrayEST : Array<DTOEstablecimiento> = new Array<DTOEstablecimiento>();
 
   ejemploSlide: any = [
     { id: 1 , PIC: "https://candela-500700.c.cdn77.org/wp-content/uploads/2016/10/images_2016_09_10_motel0.jpg" }
@@ -24,12 +24,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
       this.ejemplo();
-
   }
 
   ejemplo(){
     for(var i = 1 ; i< 4 ; i++){
-      var establecimiento = new Establecimiento();
+      var establecimiento = new DTOEstablecimiento();
       establecimiento.ESTid = i;
       establecimiento.ESTnombre = 'Amarte_' + i;
       

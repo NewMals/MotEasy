@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Establecimiento } from "../../modelos/Establecimiento";
+import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { NavParams } from "ionic-angular";
 /**
  * Generated class for the ViewEstablecimientoComponent component.
@@ -14,12 +14,11 @@ import { NavParams } from "ionic-angular";
 export class ViewEstablecimientoComponent {
 
   text: string;
-  @Input() ESTview : Establecimiento;
+  @Input() ESTview : DTOEstablecimiento;
   favorito : Boolean = false;
 
   constructor(public navParams: NavParams) {
     console.log('Hello ViewEstablecimientoComponent Component');
-    //this.ESTview = this.navParams.get('ESTpri');
   }
 
   ejemploSlide: any = [

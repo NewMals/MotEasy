@@ -1,3 +1,23 @@
 item-habitacion {
+    .ItHabImg{
+        margin: auto;
+        width: 100%;
+        height: 100px;
+        border-radius: 4px;
+    }
 
+    .ItHabGlo{
+        background-color: #510000;
+        font-weight: bold;
+    }
+
+    .ItHabCont{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .ItHabEspeciales{
+        font-size: 12px;
+        color: #9C9C9C;
+    }
 }

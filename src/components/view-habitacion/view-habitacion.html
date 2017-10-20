@@ -1,4 +1,10 @@
 <!-- Generated template for the ViewHabitacionComponent component -->
-<div>
-  {{text}}
+<div class="VwHabGlo">
+  <ion-slides id={{HABview.HABid}} pager class="HabContent">
+    <div *ngFor="let s of ejemploSlide">
+      <ion-slide *ngIf="HABview.HABid == s.id">
+        <img src="{{s.PIC}}" class="VwHabImg">
+      </ion-slide>
+    </div>
+  </ion-slides> 
 </div>

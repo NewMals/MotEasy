@@ -1,4 +1,4 @@
-export class Establecimiento {
+export class DTOEstablecimiento {
     ESTid : number;
     ESTnombre : string;
     ESTciudad : number;

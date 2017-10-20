@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DTOhabitacion } from "../../modelos/DTOhabitacion";
 
 /**
  * Generated class for the HabitacionPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HabitacionPage {
 
+  HABpage : DTOhabitacion;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.HABpage = this.navParams.get('HABpri');
   }
 
   ionViewDidLoad() {

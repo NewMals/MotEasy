@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Establecimiento } from "../../modelos/Establecimiento";
+import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 
 /**
  * Generated class for the ItemEstablecimientoComponent component.
@@ -14,7 +14,7 @@ import { Establecimiento } from "../../modelos/Establecimiento";
 export class ItemEstablecimientoComponent {
 
   text: string;
-  @Input() ESTitem : Establecimiento;
+  @Input() ESTitem : DTOEstablecimiento;
 
   constructor() {
     console.log('Hello ItemEstablecimientoComponent Component');
