@@ -30,7 +30,6 @@ export class EstablecimientoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ESTpage = this.navParams.get('ESTpri');
-    
   }
 
   ionViewDidLoad() {
@@ -43,8 +42,11 @@ export class EstablecimientoPage {
       var habitacion = new DTOhabitacion();
       habitacion.HABid = i;
       habitacion.HABestablecimiento = this.ESTpage.ESTid;
-      habitacion.HABTipo = 'Suite_' + i;
-      habitacion.HABprecio = 30000 * i;
+      habitacion.HABtipo = 'Suite_' + i;
+      habitacion.HABtarifaEstandar = 30000 * i;
+      habitacion.HABcantPersonas = 2;
+      habitacion.HABcantPersonasMax = 2 + i;
+      habitacion.HABtarifaAdicional = 20000 * i;
       
       this.ejemploSlide.forEach(element => {
         if(i == element.id){

@@ -1,7 +1,11 @@
 export class DTOhabitacion{
     HABid : number;
     HABestablecimiento : number;
-    HABTipo : string;
+    HABtipo : string;
     HABfotoPrincipal : string;
-    HABprecio: number;
+    HABtarifaEstandar: number;
+    HABtarifaAdicional: number;
+    HABcantPersonas: number;
+    HABcantPersonasMax: number;
+
 }

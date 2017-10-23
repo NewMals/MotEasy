@@ -1,24 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
-import { NavParams } from "ionic-angular";
+import { DTOhabitacion } from "../../../modelos/DTOhabitacion";
+
 /**
- * Generated class for the ViewEstablecimientoComponent component.
+ * Generated class for the ViewHabitacionComponent component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'view-establecimiento',
-  templateUrl: 'view-establecimiento.html'
+  selector: 'view-habitacion',
+  templateUrl: 'view-habitacion.html'
 })
-export class ViewEstablecimientoComponent {
+export class ViewHabitacionComponent {
 
   text: string;
-  @Input() ESTview : DTOEstablecimiento;
-  favorito : Boolean = false;
+  @Input() HABview : DTOhabitacion;
 
-  constructor(public navParams: NavParams) {
-    console.log('Hello ViewEstablecimientoComponent Component');
+  constructor() {
+    console.log('Hello ViewHabitacionComponent Component');
+    this.text = 'Hello World';
   }
 
   ejemploSlide: any = [
@@ -40,12 +40,4 @@ export class ViewEstablecimientoComponent {
 
     
   ];
-
-  modFavorito(){
-    if(this.favorito){
-      this.favorito = false;
-    }else {
-      this.favorito = true;
-    }
-  }
 }

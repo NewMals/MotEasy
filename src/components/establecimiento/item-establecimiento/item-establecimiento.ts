@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
+import { DTOEstablecimiento } from "../../../modelos/DTOEstablecimiento";
 
 /**
  * Generated class for the ItemEstablecimientoComponent component.
