@@ -6,6 +6,7 @@ import { ViewEstablecimientoComponent } from './establecimiento/view-establecimi
 import { ItemHabitacionComponent } from './habitacion/item-habitacion/item-habitacion';
 import { ViewHabitacionComponent } from './habitacion/view-habitacion/view-habitacion';
 import { InformacionHabitacionComponent } from './habitacion/informacion-habitacion/informacion-habitacion';
+import { InformacionTarifasComponent } from './tarifa/informacion-tarifas/informacion-tarifas';
 @NgModule({
 	declarations: [
 		FiltroGeneralComponent,
@@ -13,7 +14,8 @@ import { InformacionHabitacionComponent } from './habitacion/informacion-habitac
     ViewEstablecimientoComponent,
     ItemHabitacionComponent,
     ViewHabitacionComponent,
-    InformacionHabitacionComponent
+    InformacionHabitacionComponent,
+    InformacionTarifasComponent
 	],
 	imports: [
 		IonicModule,
@@ -25,7 +27,8 @@ import { InformacionHabitacionComponent } from './habitacion/informacion-habitac
     ViewEstablecimientoComponent,
     ItemHabitacionComponent,
     ViewHabitacionComponent,
-    InformacionHabitacionComponent
+    InformacionHabitacionComponent,
+    InformacionTarifasComponent
 	]
 })
 export class ComponentsModule {}

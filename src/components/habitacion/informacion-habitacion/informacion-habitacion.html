@@ -1,27 +1,20 @@
 <!-- Generated template for the InformacionHabitacionComponent component -->
 <div class="InfHabGlo">
   <ion-row class="InfHabCont">
-    <ion-col style="max-width: 30px;">
-        <ion-label><img src="assets/icon/telephone.png"></ion-label>
-        <ion-label><img src="assets/icon/telephone.png"></ion-label>
+    <ion-col style="max-width: 40px;">
+      <img src="assets/icon/love24.png">
     </ion-col>
     <ion-col class="InfHabEspeciales">
-        <ion-label>{{HABinf.HABcantPersonas}} personas incluidas en la tarifa</ion-label>
-        <ion-label>Capaidad para {{HABinf.HABcantPersonasMax}} personas maximo</ion-label>
+      <ion-label>{{HABinf.HABcantPersonas}} personas incluidas en la tarifa</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row class="InfHabCont">
+    <ion-col style="max-width: 40px;">
+      <img src="assets/icon/social-services.png">
+    </ion-col>
+    <ion-col class="InfHabEspeciales">
+        <ion-label>Capacidad para {{HABinf.HABcantPersonasMax}} personas maximo</ion-label>
     </ion-col>
   </ion-row>
 </div>
 <br>
-<div class="InfHabGlo">
-  <label class="InfHabCont">Estadías y tarifas</label>
-  <ion-row class="InfHabCont">    
-    <ion-col class="InfHabEspeciales">      
-      <ion-label>Toda la noche</ion-label>
-      <ion-label>6 horas</ion-label>
-    </ion-col>
-    <ion-col style=" text-align: right;">
-      <ion-label>{{HABinf.HABtarifaEstandar | currency:'USD':true:'.0'}}</ion-label>
-      <ion-label>{{HABinf.HABtarifaAdicional | currency:'USD':true:'.0'}}</ion-label>
-    </ion-col>
-  </ion-row>
-</div>
