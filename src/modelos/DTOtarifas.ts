@@ -1,12 +1,8 @@
 export class DTOtarifas {
     TAFid : number;
-    TAFtipo : DTOtarifasTipo;
+    TAFdescripcion : string;
     TAFvalorEstandar : number;
     TAFvalorAdicional : number;
 }
 
-export class DTOtarifasTipo {
-    TATid : number;
-    TATdescripcion : string;
-}
 

@@ -1,11 +1,16 @@
-export class DTOhabitacion{
+import { DTOtarifas } from "./DTOtarifas";
+
+export class DTOhabitacion {
     HABid : number;
     HABestablecimiento : number;
-    HABtipo : string;
+    HABtipo : DTOtipoHabitacion;
     HABfotoPrincipal : string;
-    HABtarifaEstandar: number;
-    HABtarifaAdicional: number;
-    HABcantPersonas: number;
-    HABcantPersonasMax: number;
+}
 
+export class DTOtipoHabitacion {
+    TIHid : number;
+    TIHdescripcion : string;
+    TIHcantPersonas : number;
+    TIHcantPersonasMax : number;
+    TIHtarifa : Array<DTOtarifas>;
 }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
-import { DTOhabitacion } from "../../modelos/DTOhabitacion";
+import { DTOhabitacion, DTOtipoHabitacion } from "../../modelos/DTOhabitacion";
 import { HabitacionPage } from "../habitacion/habitacion";
+import { DTOtarifas } from "../../modelos/DTOtarifas";
 
 /**
  * Generated class for the PageEstablecimientoPage page.
@@ -27,6 +28,8 @@ export class EstablecimientoPage {
     , { id: 3 , PIC: "https://losmoteles.com/wp-content/uploads/2016/04/habitacion-presidencial-motel-sabores-e1461461958710.jpg" }
   ];
 
+  arrayTipoHabitacion : Array<DTOtipoHabitacion> = new Array<DTOtipoHabitacion>();
+  arrayTarifas : Array<DTOtarifas> = new Array<DTOtarifas>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.ESTpage = this.navParams.get('ESTpri');
@@ -35,18 +38,48 @@ export class EstablecimientoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PageEstablecimientoPage');
     this.ejemplo();
+    console.log(this.ArrayHAB);
   }
 
   ejemplo(){
+    for(var i = 1 ; i < 3 ; i++){
+      var tarifa = new DTOtarifas();
+      tarifa.TAFid = i;
+      tarifa.TAFdescripcion = 'Toda la noche';
+      tarifa.TAFvalorEstandar = 30000 * i;
+      tarifa.TAFvalorAdicional = 20000 * i;
+
+      var tarifa2 = new DTOtarifas();
+      tarifa2.TAFid = i;
+      tarifa2.TAFdescripcion = '6 horas';
+      tarifa2.TAFvalorEstandar = 30000 * i;
+      tarifa2.TAFvalorAdicional = 20000 * i;
+
+      this.arrayTarifas.push(tarifa);
+      this.arrayTarifas.push(tarifa2);
+    }
+    console.log('tarifas' , this.arrayTarifas);
+
+    for(var i = 1 ; i< 4 ; i++){
+      var tipoHabitacion = new DTOtipoHabitacion();
+      tipoHabitacion.TIHid = i;
+      tipoHabitacion.TIHdescripcion = 'Suite_' + i;
+      tipoHabitacion.TIHcantPersonas = 2;
+      tipoHabitacion.TIHcantPersonasMax = 2 + i;
+      tipoHabitacion.TIHtarifa = this.arrayTarifas.slice();
+      this.arrayTipoHabitacion.push(tipoHabitacion);
+    }
+    console.log('tipoHabitacion' , this.arrayTipoHabitacion);
+
     for(var i = 1 ; i< 4 ; i++){
       var habitacion = new DTOhabitacion();
       habitacion.HABid = i;
       habitacion.HABestablecimiento = this.ESTpage.ESTid;
-      habitacion.HABtipo = 'Suite_' + i;
-      habitacion.HABtarifaEstandar = 30000 * i;
-      habitacion.HABcantPersonas = 2;
-      habitacion.HABcantPersonasMax = 2 + i;
-      habitacion.HABtarifaAdicional = 20000 * i;
+      this.arrayTipoHabitacion.forEach(tipoHabitacion => {
+        if(i == tipoHabitacion.TIHid)
+          habitacion.HABtipo = tipoHabitacion; 
+      });
+       
       
       this.ejemploSlide.forEach(element => {
         if(i == element.id){
