@@ -14,5 +14,21 @@
 <ion-content padding>
   <view-habitacion [HABview]="HABpage"> </view-habitacion>
   <informacion-habitacion [HABinf]="HABpage"></informacion-habitacion>
-  <informacion-tarifas [HABtaf]="HABpage"></informacion-tarifas>
+  <!-- <informacion-tarifas [HABtaf]="HABpage"></informacion-tarifas> -->
+  <ion-row class="HabGlo"> 
+    <ion-col>
+    <informacion-complementos></informacion-complementos>
+    </ion-col>
+    <ion-col>
+      <informacion-entretenimiento></informacion-entretenimiento>
+    </ion-col>
+  </ion-row>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar  style="text-align: center;">
+      <button (click)="abrirMapa()">
+        <ion-label>A romper Nalgas</ion-label>
+      </button>
+    </ion-toolbar>
+  </ion-footer>

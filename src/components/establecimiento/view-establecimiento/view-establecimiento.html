@@ -7,19 +7,31 @@
         </ion-slide>
       </div>
     </ion-slides> 
-    <ion-row class="VwEstCont">
-      <ion-col>
+
+  <ion-row>
+    <ion-col>
+      <ion-row class="VwEstCont">
+        <ion-col style="max-width: 30px;">
             <img src="assets/icon/romantic-hotel.png">
-            <label class="VwEstEspeciales">Cll 69 Sur # 9b 28 {{direccion}}</label>
+        </ion-col>
+        <ion-col class="VwEstEspeciales">
+              <label >Cll 69 Sur # 9b 28 {{direccion}}</label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="VwEstCont">
+          <ion-col style="max-width: 30px;">
+              <img src="assets/icon/telephone.png">
+          </ion-col>
+          <ion-col class="VwEstEspeciales">
+              <label >(031) 4778161 {{numContacto}}</label>
+          </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col style="text-align: right; max-width: 60px; margin: auto; padding-right: 10px;" (click)="modFavorito()">
         <ion-label>
-            <img src="assets/icon/telephone.png">
-            <label class="VwEstEspeciales"> (031) 4778161 {{numContacto}}</label>
+          <img src="{{ favorito ? 'assets/icon/big-heart.png' : 'assets/icon/heart.png' }}">
         </ion-label>
-      </ion-col>
-      <ion-col style="text-align: right;" (click)="modFavorito()">
-          <ion-label>
-          <img src="{{ favorito ? 'assets/icon/big-heart32.png' : 'assets/icon/heart32.png' }}">
-          </ion-label>
-      </ion-col>
-    </ion-row>
+    </ion-col>
+  </ion-row>
 </div>
+

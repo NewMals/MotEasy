@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DTOhabitacion } from "../../modelos/DTOhabitacion";
+import { MapaPage } from "../mapa/mapa";
 
 /**
  * Generated class for the HabitacionPage page.
@@ -24,6 +25,10 @@ export class HabitacionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HabitacionPage');
+  }
+
+  abrirMapa(){
+    this.navCtrl.push(MapaPage);
   }
 
 }
