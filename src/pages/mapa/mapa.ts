@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GoogleMaps, GoogleMap, LatLng, CameraPosition, GoogleMapsEvent, MarkerOptions, MyLocationOptions, CircleOptions, Circle, GoogleMapOptions, MarkerIcon } from "@ionic-native/google-maps";
+import { GoogleMaps, GoogleMap, LatLng, CameraPosition, GoogleMapsEvent, MarkerOptions, MyLocationOptions, CircleOptions, Circle, GoogleMapOptions, MarkerIcon, MarkerClusterOptions } from "@ionic-native/google-maps";
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 
 /**
@@ -62,7 +62,7 @@ export class MapaPage {
           
           position = {
               target: myPosition,
-              zoom: 18,
+              zoom: 16.5,
               tilt: 30
           }
 
@@ -202,8 +202,8 @@ export class MapaPage {
 
     let position: CameraPosition<any>;
     position = {
-      zoom: 1000,
-      tilt: 5000
+      zoom: 16,
+      tilt: 30
     }
 
    
@@ -211,8 +211,8 @@ export class MapaPage {
     let icono: MarkerIcon ={
       url: 'assets/icon/location-motel.png',
       size: {
-        width: 40,
-        height: 40
+        width: 35,
+        height: 35
       }
     }
 
@@ -230,25 +230,86 @@ export class MapaPage {
           let valor = this.map.getMyLocation();
           
           valor.then(location =>{ 
-           
+            position.target = location.latLng;
             let latitude =  location.latLng.lat + 0.0017000
             let longitud =  location.latLng.lng + 0.0017000
+            let latitude2 =  location.latLng.lat - 0.0022000
+            let longitud2 =  location.latLng.lng - 0.0022000
             //let latitudeMap = ( (latitude - location.latLng.lat) /2 ) + location.latLng.lat; 
             //let longitudMap = ( (longitud - location.latLng.lng) /2 ) + location.latLng.lng;
             let markerPosition = new LatLng(latitude,longitud);
+            let markerPosition2 = new LatLng(latitude2,longitud2);
             //let cameraPosition = new LatLng(latitudeMap,longitudMap);
 
             //position.target = cameraPosition;
-            position.target = location.latLng;
+    
 
-            let markerOptions: MarkerOptions = {
+            let markerOptions: MarkerOptions []= [
+              {
               position: markerPosition,
-              title: 'Here',
+              title: 'Establecimiento 1',
               icon: icono,
-              animation: 'BOUNCE'
-            }
+              animation: 'BOUNCE',
+              snippet: 'Visualizar',
+              },
+              {
+                position: markerPosition2,
+                title: 'Establecimiento 2 probando...',
+                icon: icono,
+                animation: 'BOUNCE',
+                snippet: 'Visualizar que tipo de contenido se ve',
+
+              }
+            ]  
+
+            // let iconany : any[] = [{
+            //   name: "assets/icon/location-pin.png"
+            // }] 
+            
+            // let Markercluster: MarkerClusterOptions = {
+            //   markers: markerOptions,
+            //   icons: iconany
+            // }
+
+            // this.map.addMarkerCluster(Markercluster)
+            // .then(marker => {
+            //   console.log(marker);
+            //     marker.
+            //     marker.on(GoogleMapsEvent.INFO_CLICK)
+            //       .subscribe(() => {
+            //         alert('clicked');
+            //       });
+            //   });    
+
             this.map.animateCamera(position);
-            this.map.addMarker(markerOptions);            
+            
+            markerOptions.forEach(marker => {
+                this.map.addMarker(marker).then(index =>{
+                  console.log("marca " +index.getId() ,index);
+                  
+                  index.on(GoogleMapsEvent.INFO_CLICK)
+                  .subscribe(() => {
+                    alert('clicked' + index.getId());
+                  });
+                });
+            });
+
+            // this.map.addMarker(markerOptions).then(marker => {
+            //   marker.on(GoogleMapsEvent.INFO_CLICK)
+            //     .subscribe(() => {
+            //       alert('clicked' + marker.getId());
+            //       console.log("marca 1",marker);
+            //     });
+            // });  
+            
+            // this.map.addMarker(markerOptions2).then(marker => {
+            //   marker.on(GoogleMapsEvent.INFO_CLICK)
+            //     .subscribe(() => {
+            //       console.log("marca 2",marker);
+            //       alert(marker);
+            //     });
+            // });
+
           });
           
     
