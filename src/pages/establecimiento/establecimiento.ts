@@ -42,18 +42,20 @@ export class EstablecimientoPage {
   }
 
   ejemplo(){
-    for(var i = 1 ; i < 3 ; i++){
+    for(var i = 1 ; i < 4 ; i++){
       var tarifa = new DTOtarifas();
       tarifa.TAFid = i;
       tarifa.TAFdescripcion = 'Toda la noche';
-      tarifa.TAFvalorEstandar = 30000 * i;
-      tarifa.TAFvalorAdicional = 20000 * i;
+      tarifa.TAFvalorEstandar = 50000 * i;
+      tarifa.TAFvalorAdicional = 30000 * i;
 
       var tarifa2 = new DTOtarifas();
       tarifa2.TAFid = i;
       tarifa2.TAFdescripcion = '6 horas';
       tarifa2.TAFvalorEstandar = 30000 * i;
       tarifa2.TAFvalorAdicional = 20000 * i;
+
+      
 
       this.arrayTarifas.push(tarifa);
       this.arrayTarifas.push(tarifa2);
@@ -66,7 +68,9 @@ export class EstablecimientoPage {
       tipoHabitacion.TIHdescripcion = 'Suite_' + i;
       tipoHabitacion.TIHcantPersonas = 2;
       tipoHabitacion.TIHcantPersonasMax = 2 + i;
-      tipoHabitacion.TIHtarifa = this.arrayTarifas.slice();
+      tipoHabitacion.TIHtarifa = this.arrayTarifas.filter(filtro =>
+        filtro.TAFid == i
+      );
       this.arrayTipoHabitacion.push(tipoHabitacion);
     }
     console.log('tipoHabitacion' , this.arrayTipoHabitacion);

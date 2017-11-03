@@ -1,14 +1,12 @@
 <!-- Generated template for the InformacionTarifasComponent component -->
-<div class="InfHabGlo">
-    <label class="InfHabCont">Tarifas de estadía</label>
-    <ion-row class="InfHabCont">    
-      <ion-col class="InfHabEspeciales">      
-        <ion-label>Toda la noche</ion-label>
-        <ion-label>6 horas</ion-label>
+<div class="InfTafGlo">
+    <label class="InfTafCont">Tarifas de estadía</label>
+    <ion-row class="InfTafCont" *ngFor="let tarifa of ArrayTaf">    
+      <ion-col class="InfTafEspeciales">      
+        <label>{{tarifa.TAFdescripcion}}</label>
       </ion-col>
       <ion-col style=" text-align: right;">
-        <ion-label>{{HABtaf.HABtipo.TIHtarifa | currency:'USD':true:'.0'}}</ion-label>
-        <ion-label>{{HABtaf.HABtarifaAdicional | currency:'USD':true:'.0'}}</ion-label>
+        <label>{{tarifa.TAFvalorEstandar | currency:'USD':true:'.0'}}</label>
       </ion-col>
     </ion-row>
   </div>
