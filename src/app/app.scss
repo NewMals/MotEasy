@@ -30,7 +30,15 @@
     line-height: 35px;
   }
   
-  
+  .searchbar-md .searchbar-search-icon {
+    top: 3.5px;
+  }
+
+  .searchbar-md .searchbar-input{
+    padding: 0px 55px;
+    line-height: 2.5rem;
+    border-radius: 10px;
+  }
 //   ### Agregar origen git a un proyecto con código 
 //   /*Añade el repositorio remoto al codigo actual*/
 //   ```sh

@@ -1,6 +1,12 @@
-
-  <ion-navbar>    
-  </ion-navbar>
-<ion-content>
-  {{text}}
-</ion-content>
+<div>
+  <ion-row>
+  <ion-col style="padding: 0px; margin: auto;">
+      <ion-searchbar placeholder="Buscar"></ion-searchbar>  
+  </ion-col>
+  <ion-col style="padding: 2px; max-width: 40px;">
+      <label ion-fab mini (click)="abrirMapa()" >
+        <img src="assets/icon/local-search.png" class="FilGenImg" >
+      </label>
+  </ion-col>
+  </ion-row>
+</div>
