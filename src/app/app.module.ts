@@ -7,8 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
-import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps } from '@ionic-native/google-maps';
 import { MapaPageModule } from "../pages/mapa/mapa.module";
 
 @NgModule({
@@ -19,7 +17,6 @@ import { MapaPageModule } from "../pages/mapa/mapa.module";
     BrowserModule,
     EstablecimientoPageModule,
     HabitacionPageModule,
-    MapaPageModule,
     IonicModule.forRoot(MyApp)
     
   ],
@@ -30,8 +27,6 @@ import { MapaPageModule } from "../pages/mapa/mapa.module";
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,
-    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

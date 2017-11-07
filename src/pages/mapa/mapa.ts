@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, LatLng, CameraPosition, GoogleMapsEvent, MarkerOptions, MyLocationOptions, CircleOptions, Circle, GoogleMapOptions, MarkerIcon, MarkerClusterOptions } from "@ionic-native/google-maps";
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 
 /**
  * Generated class for the MapaPage page.
@@ -22,7 +21,6 @@ export class MapaPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public geolocation: Geolocation,
     public googleMaps: GoogleMaps
     ) {
       //this.crearMapa();
@@ -35,76 +33,76 @@ export class MapaPage {
 
 
 
-  obtenerPosicion():any{
-    this.geolocation.watchPosition().subscribe(response => {
-      //this.loadMap(response);
+  // obtenerPosicion():any{
+  //   this.geolocation.watchPosition().subscribe(response => {
+  //     //this.loadMap(response);
       
-    })
+  //   })
     // .catch(error =>{
     //   console.log(error);
     // })
-  }
+  //}
 
   
 
-  loadMap(postion: Geoposition){
-    let latitude = postion.coords.latitude;
-    let longitud = postion.coords.longitude;
-    console.log(latitude, longitud);
-    let myPosition: LatLng = new LatLng(latitude,longitud);
-    // create a new map by passing HTMLElement
-    let circleOptions: CircleOptions;
-    let position: CameraPosition<LatLng>;
-    let MyLocationOptions : MyLocationOptions = {enableHighAccuracy: true } 
+  // loadMap(postion: Geoposition){
+  //   let latitude = postion.coords.latitude;
+  //   let longitud = postion.coords.longitude;
+  //   console.log(latitude, longitud);
+  //   let myPosition: LatLng = new LatLng(latitude,longitud);
+  //   // create a new map by passing HTMLElement
+  //   let circleOptions: CircleOptions;
+  //   let position: CameraPosition<LatLng>;
+  //   let MyLocationOptions : MyLocationOptions = {enableHighAccuracy: true } 
 
-      if(!this.mapaCreado){
-          this.crearMapa();
+  //     if(!this.mapaCreado){
+  //         this.crearMapa();
           
-          position = {
-              target: myPosition,
-              zoom: 16.5,
-              tilt: 30
-          }
+  //         position = {
+  //             target: myPosition,
+  //             zoom: 16.5,
+  //             tilt: 30
+  //         }
 
           
 
-          circleOptions = {
-            center: myPosition,
-            fillColor: "#a24444",
-            strokeColor: "#800000",
-            radius: 1,
-            strokeWidth: 3,         
-          };
+  //         circleOptions = {
+  //           center: myPosition,
+  //           fillColor: "#a24444",
+  //           strokeColor: "#800000",
+  //           radius: 1,
+  //           strokeWidth: 3,         
+  //         };
 
-       }
+  //      }
 
-        this.map.on(GoogleMapsEvent.MAP_READY).subscribe(()=>{
+  //       this.map.on(GoogleMapsEvent.MAP_READY).subscribe(()=>{
 
-            //create new marker
-            let markerOptions: MarkerOptions = {
-              position: myPosition,
-              title: 'Here'
-            };
-            //this.map.addMarker(markerOptions);
+  //           //create new marker
+  //           let markerOptions: MarkerOptions = {
+  //             position: myPosition,
+  //             title: 'Here'
+  //           };
+  //           //this.map.addMarker(markerOptions);
             
-            this.map.animateCamera(position);
-            this.map.getMyLocation(MyLocationOptions);
-            this.map.addCircle(circleOptions);
+  //           this.map.animateCamera(position);
+  //           this.map.getMyLocation(MyLocationOptions);
+  //           this.map.addCircle(circleOptions);
             
-        });          
+  //       });          
         
-        this.map.getMyLocation(MyLocationOptions);
-        this.map.setMyLocationEnabled(true);
-        //this.map.addCircle(circleOptions);
-        //this.map.moveCamera(position);
-        //let circle = new Circle(this.map, circleOptions);
-        //circle.setCenter(myPosition);
+  //       this.map.getMyLocation(MyLocationOptions);
+  //       this.map.setMyLocationEnabled(true);
+  //       //this.map.addCircle(circleOptions);
+  //       //this.map.moveCamera(position);
+  //       //let circle = new Circle(this.map, circleOptions);
+  //       //circle.setCenter(myPosition);
         
-        //this.map.setCameraTarget(myPosition);
+  //       //this.map.setCameraTarget(myPosition);
 
-    //map.one(GoogleMapsEvent.MAP_READY).then(()=>{
+  //   //map.one(GoogleMapsEvent.MAP_READY).then(()=>{
     
-  }
+  // }
 
   crearMapa(){
     let element: HTMLElement = document.getElementById('map');

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MapaPage } from './mapa';
 import { ComponentsModule } from "../../components/components.module";
+import { GoogleMaps } from "@ionic-native/google-maps";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,9 @@ import { ComponentsModule } from "../../components/components.module";
   ],
   exports: [
     MapaPage,
+  ],
+  providers: [
+    GoogleMaps
   ]
 })
 export class MapaPageModule {}
