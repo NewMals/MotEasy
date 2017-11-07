@@ -76,6 +76,7 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
+    <allow-navigation href="http://192.168.66.25:8100" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
     <plugin name="cordova-plugin-statusbar" spec="https://github.com/apache/cordova-plugin-statusbar.git" />
@@ -89,5 +90,4 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyC2uWKfdyE83hwcusrOlIOqW6UJf2cnGms" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyDIS7SuOMoqFLwcoOS7cMKJZiocd9xo52M" />
     </plugin>
-    <allow-navigation href="http://192.168.66.25:8100" />
 </widget>

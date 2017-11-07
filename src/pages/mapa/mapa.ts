@@ -27,7 +27,8 @@ export class MapaPage {
   }
 
   ionViewDidLoad() {
-    this.crearMapa();
+    if(!this.mapaCreado)
+      this.crearMapa();
   }
 
 
@@ -244,11 +245,11 @@ export class MapaPage {
 
             let markerOptions: MarkerOptions []= [
               {
-              position: markerPosition,
-              title: 'Establecimiento 1',
-              icon: icono,
-              animation: 'BOUNCE',
-              snippet: 'Visualizar',
+                position: markerPosition,
+                title: 'Establecimiento 1',
+                icon: icono,
+                animation: 'BOUNCE',
+                snippet: 'Visualizar',
               },
               {
                 position: markerPosition2,
@@ -291,23 +292,7 @@ export class MapaPage {
                   });
                 });
             });
-
-            // this.map.addMarker(markerOptions).then(marker => {
-            //   marker.on(GoogleMapsEvent.INFO_CLICK)
-            //     .subscribe(() => {
-            //       alert('clicked' + marker.getId());
-            //       console.log("marca 1",marker);
-            //     });
-            // });  
-            
-            // this.map.addMarker(markerOptions2).then(marker => {
-            //   marker.on(GoogleMapsEvent.INFO_CLICK)
-            //     .subscribe(() => {
-            //       console.log("marca 2",marker);
-            //       alert(marker);
-            //     });
-            // });
-
+            this.mapaCreado = true;
           });
           
     
