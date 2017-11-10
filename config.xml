@@ -90,4 +90,8 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyC2uWKfdyE83hwcusrOlIOqW6UJf2cnGms" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyDIS7SuOMoqFLwcoOS7cMKJZiocd9xo52M" />
     </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="3071312397817609" />
+        <variable name="APP_NAME" value="MotEasy" />
+    </plugin>
 </widget>

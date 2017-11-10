@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 import { MapaPageModule } from "../pages/mapa/mapa.module";
+import { LoginPageModule } from "../pages/login/login.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MapaPageModule } from "../pages/mapa/mapa.module";
     BrowserModule,
     EstablecimientoPageModule,
     HabitacionPageModule,
+    LoginPageModule,
     IonicModule.forRoot(MyApp)
     
   ],
