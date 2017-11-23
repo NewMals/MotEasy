@@ -32,3 +32,8 @@ Substitute ios for android if not on a Mac.
 "c:\\Program Files\Java\jdk1.8.0_131\bin\jarsigner.exe" -verbose -sigalg SHA256withRSA -digestalg SHA1 -keystore moteasy-release-key.keystore platforms\android\build\outputs\apk\android-release-unsigned.apk motkey
 
 "c:\\Users\michael.lozano\AppData\Local\Android\sdk\build-tools\25.0.2\zipalign.exe" -v 4 platforms\android\build\outputs\apk\android-release-unsigned.apk MotEasy.apk
+
+[‎23/‎11/‎2017 2:26 p. m.] Jairo Alonso Fernandez Vega: 
+"<C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe>" -exportcert -alias mciganar -keystore my-dev-key.keystore | openssl sha1 -binary | openssl base64
+
+"<C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe>" -exportcert -list -v -alias mciganar -keystore my-dev-key.keystore  
