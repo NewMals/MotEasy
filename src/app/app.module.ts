@@ -9,6 +9,7 @@ import { EstablecimientoPageModule } from "../pages/establecimiento/establecimie
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 import { MapaPageModule } from "../pages/mapa/mapa.module";
 import { LoginPageModule } from "../pages/login/login.module";
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginPageModule } from "../pages/login/login.module";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider
   ]
 })
 export class AppModule {}
