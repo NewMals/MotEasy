@@ -24,16 +24,33 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+### Firmar APK
+```sh
 
-"C:\Program Files (x86)\Java\jre1.8.0_111\bin\keytool.exe" -genkey -v -keystore moteasy-release-key.keystore -alias motKey -keyalg RSA -keysize 2048 -validity 10000
+Generar clave privada para firmar el app (No perder archivo generado)
+$ "C:\Program Files (x86)\Java\jre1.8.0_111\bin\keytool.exe" -genkey -v -keystore moteasy-release-key.keystore -alias motKey -keyalg RSA -keysize 2048 -validity 10000
 
-"C:\Program Files\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias motKey -keystore moteasy-release-key.keystore 
+Firmar APK
 
-"c:\\Program Files\Java\jdk1.8.0_131\bin\jarsigner.exe" -verbose -sigalg SHA256withRSA -digestalg SHA1 -keystore moteasy-release-key.keystore platforms\android\build\outputs\apk\android-release-unsigned.apk motkey
+# release
+$ "c:\\Program Files\Java\jdk1.8.0_131\bin\jarsigner.exe" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore moteasy-release-key.keystore platforms\android\build\outputs\apk\android-release-unsigned.apk motkey
+
+# debug
+"c:\\Program Files\Java\jdk1.8.0_131\bin\jarsigner.exe" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore debug.keystore platforms\android\build\outputs\apk\android-debug.apk androiddebugkey
+
+Keystore name: "debug.keystore"
+Keystore password: "android"
+Key alias: "androiddebugkey"
+Key password: "android"
+CN: "CN=Android Debug,O=Android,C=US"
 
 "c:\\Users\michael.lozano\AppData\Local\Android\sdk\build-tools\25.0.2\zipalign.exe" -v 4 platforms\android\build\outputs\apk\android-release-unsigned.apk MotEasy.apk
 
 [‎23/‎11/‎2017 2:26 p. m.] Jairo Alonso Fernandez Vega: 
-"<C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe>" -exportcert -alias mciganar -keystore my-dev-key.keystore | openssl sha1 -binary | openssl base64
+"C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -alias mciganar -keystore my-dev-key.keystore | openssl sha1 -binary | openssl base64
 
-"<C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe>" -exportcert -list -v -alias mciganar -keystore my-dev-key.keystore  
+
+ "C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias motKey -keystore moteasy-release-key.keystore
+ "C:\Program Files\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias motKey -keystore moteasy-release-key.keystore 
+
+ ```
