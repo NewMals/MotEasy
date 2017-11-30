@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+// import { AngularFireAuth } from 'angularfire2/auth';
+// import * as firebase from 'firebase/app';
 import { Facebook } from "@ionic-native/facebook";
 import { AuthProvider } from "../../providers/auth/auth";
 
 
-@IonicPage()
+@IonicPage({
+  name: 'LoginPage'
+})
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',

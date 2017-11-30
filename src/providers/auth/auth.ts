@@ -84,6 +84,7 @@ signInWithFacebook() {
       this.loading.dismiss();
       return firebase.auth().signInWithCredential(facebookCredential);
     }).catch(err => {
+      console.log(err);
       this.loading.dismiss();
       this.presentToast("Error en la autenticación: " + err);
     })
@@ -95,8 +96,10 @@ signInWithFacebook() {
       .then(res => {
         this.loading.dismiss();;
       }).catch(err => {
+        console.log(err);
         this.loading.dismiss();
         this.presentToast("Error en la autenticación: " + err);
+        
       });
   }
 }

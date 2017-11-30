@@ -50,7 +50,18 @@ CN: "CN=Android Debug,O=Android,C=US"
 "C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -alias mciganar -keystore my-dev-key.keystore | openssl sha1 -binary | openssl base64
 
 
- "C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias motKey -keystore moteasy-release-key.keystore
- "C:\Program Files\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias motKey -keystore moteasy-release-key.keystore 
+ "C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias debugkey -keystore "d:\MotEasy\MotEasy\debug-key.keystore"
 
+"C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias androiddebugkey -keystore "c:\Users\michael.lozano\.android\debug.keystore"
+
+ "C:\Program Files\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
+
+
+"C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -alias debugKey -keystore debug-key.keystore | openssl sha1 -binary | openssl base64
+
+
+"c:\Program Files\Java\jdk1.8.0_131\bin\jarsigner.exe" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore debug-key.keystore platforms/android/build/outputs/apk/android-debug.apk debugKey
+
+
+cordova build android --release -- --keystore="\debug-key.keystore" --storePassword=debugkey --alias=debugKey
  ```

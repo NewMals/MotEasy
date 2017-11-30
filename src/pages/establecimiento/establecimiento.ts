@@ -12,7 +12,9 @@ import { DTOtarifas } from "../../modelos/DTOtarifas";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: 'EstablecimientoPage'
+})
 @Component({
   selector: 'page-establecimiento',
   templateUrl: 'establecimiento.html',

@@ -9,7 +9,21 @@ import { EstablecimientoPageModule } from "../pages/establecimiento/establecimie
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 import { MapaPageModule } from "../pages/mapa/mapa.module";
 import { LoginPageModule } from "../pages/login/login.module";
-import { AuthProvider } from '../providers/auth/auth';
+import { AuthProvider } from "../providers/auth/auth";
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule, AngularFireDatabase } from "angularfire2/database";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { Facebook } from "@ionic-native/facebook";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyASR-VQFfepVIDxJz_tLRzK7mrJNz_MtB0",
+  authDomain: "mote-e0df6.firebaseapp.com",
+  databaseURL: "https://mote-e0df6.firebaseio.com",
+  projectId: "mote-e0df6",
+  storageBucket: "mote-e0df6.appspot.com",
+  messagingSenderId: "1075024717028"
+};
+
 
 @NgModule({
   declarations: [
@@ -17,11 +31,13 @@ import { AuthProvider } from '../providers/auth/auth';
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     EstablecimientoPageModule,
     HabitacionPageModule,
     LoginPageModule,
-    IonicModule.forRoot(MyApp)
-    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,6 +47,8 @@ import { AuthProvider } from '../providers/auth/auth';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireDatabase,
+    Facebook,
     AuthProvider
   ]
 })
