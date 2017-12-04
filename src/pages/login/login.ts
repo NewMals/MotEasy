@@ -65,9 +65,9 @@ constructor(
  
 }
 
-// loginGoogle(){
-//   this.auth.signInWithGoogle();
-// }
+loginGoogle(){
+  this.auth.signInWithGoogle();
+}
 
   signInWithFacebook(){
     this.auth.signInWithFacebook();

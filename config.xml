@@ -95,4 +95,7 @@
         <variable name="APP_ID" value="3071312397817609" />
         <variable name="APP_NAME" value="MotEasy" />
     </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="1075024717028-5mc24hd4dcdhss32rifdau2b40c0c3j0.apps.googleusercontent.com" />
+    </plugin>
 </widget>

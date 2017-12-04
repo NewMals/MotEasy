@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { App, Platform, LoadingController, ToastController, NavController } from "ionic-angular";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Facebook } from "@ionic-native/facebook";
+import { GooglePlus } from '@ionic-native/google-plus';
 import * as firebase from 'firebase/app';
 /*
   Generated class for the AuthProvider provider.
@@ -23,7 +24,7 @@ export class AuthProvider {
     private fb: Facebook,
     private platform: Platform,
     public loadingCtrl: LoadingController,
-    //private googlePlus: GooglePlus,
+    private googlePlus: GooglePlus,
     public toastCtrl: ToastController
   )
   {
@@ -47,34 +48,34 @@ get navCtrl(): NavController {
   return this.app.getRootNav();
 }
 
-// signInWithGoogle() {
-//   this.loading.present();
-//   var isWeb = document.URL.startsWith('http');
+signInWithGoogle() {
+  this.loading.present();
+  var isWeb = document.URL.startsWith('http');
 
-//   if (!isWeb) {
-//     this.googlePlus.login({
-//       'webClientId': '737511447093-qehdam08ekkfun0o3rk4asnb3k7k3iau.apps.googleusercontent.com',
-//       'offline': true
-//     }).then(res => {
-//       firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
-//         .then(success => {
-//           console.log("Firebase success: " + JSON.stringify(success));
-//           this.loading.dismiss();
-//         }).catch(error => {
-//           this.loading.dismiss();
-//           console.log("Firebase failure: " + JSON.stringify(error));
-//         });
-//     });
-//   } else {
-//     this.afAuth.auth
-//       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-//       .then(res => {
-//         this.loading.dismiss()
-//       }).catch(err => {
-//         this.loading.dismiss();
-//       });
-//   }
-// }
+  if (!isWeb) {
+    this.googlePlus.login({
+      'webClientId': '1075024717028-5mc24hd4dcdhss32rifdau2b40c0c3j0.apps.googleusercontent.com',
+      'offline': true
+    }).then(res => {
+      firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+        .then(success => {
+          console.log("Firebase success: " + JSON.stringify(success));
+          this.loading.dismiss();
+        }).catch(error => {
+          this.loading.dismiss();
+          console.log("Firebase failure: " + JSON.stringify(error));
+        });
+    });
+  } else {
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then(res => {
+        this.loading.dismiss()
+      }).catch(err => {
+        this.loading.dismiss();
+      });
+  }
+}
 
 signInWithFacebook() {
   this.loading.present();
