@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { EstablecimientoPage } from "../establecimiento/establecimiento";
+import { Observable } from "rxjs/Observable";
+import { AngularFireDatabase } from "angularfire2/database";
 
 @IonicPage({
   name: 'HomePage'
@@ -13,7 +15,8 @@ import { EstablecimientoPage } from "../establecimiento/establecimiento";
 export class HomePage {
   
   //Establecimiento = new Establecimiento;
-  ArrayEST : Array<DTOEstablecimiento> = new Array<DTOEstablecimiento>();
+  //ArrayEST : Array<DTOEstablecimiento> = new Array<DTOEstablecimiento>();
+  ArrayEST : Observable<any[]>;
 
   ejemploSlide: any = [
     { id: 1 , PIC: "https://candela-500700.c.cdn77.org/wp-content/uploads/2016/10/images_2016_09_10_motel0.jpg" }
@@ -22,8 +25,11 @@ export class HomePage {
   ];
   
 
-  constructor(public navCtrl: NavController) {
-      this.ejemplo();
+  constructor(public navCtrl: NavController
+    , afDB: AngularFireDatabase
+  ) {
+      //this.ejemplo();
+        this.ArrayEST = afDB.list('Establecimientos').valueChanges();
   }
 
   ejemplo(){
@@ -37,7 +43,7 @@ export class HomePage {
           establecimiento.ESTfotoPrincipal = element.PIC;
         } 
       }); 
-      this.ArrayEST.push(establecimiento);
+      //this.ArrayEST.push(establecimiento);
     }
     
   }

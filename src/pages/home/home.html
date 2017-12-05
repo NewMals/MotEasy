@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-<div *ngFor="let establecimiento of ArrayEST">
+<div *ngFor="let establecimiento of ArrayEST | async">
   <ion-list>
     <item-establecimiento [ESTitem]="establecimiento" (click)="IngresarEST(establecimiento)"></item-establecimiento>
   </ion-list>
