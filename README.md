@@ -65,3 +65,9 @@ CN: "CN=Android Debug,O=Android,C=US"
 
 cordova build android --release -- --keystore="\debug-key.keystore" --storePassword=debugkey --alias=debugKey
  ```
+
+ ### Generar documentacion
+ ```sh
+    npm install --save-dev @compodoc/compodoc
+    npm run compodoc
+ ```
