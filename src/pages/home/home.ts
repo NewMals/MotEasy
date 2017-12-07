@@ -29,7 +29,8 @@ export class HomePage {
     , afDB: AngularFireDatabase
   ) {
       //this.ejemplo();
-        this.ArrayEST = afDB.list('Establecimientos').valueChanges();
+        this.ArrayEST = afDB.list('/Establecimientos').valueChanges();
+        console.log('arreglo',this.ArrayEST);
   }
 
   ejemplo(){

@@ -1,3 +1,5 @@
+import { DTOhabitacion } from "./DTOhabitacion";
+
 export class DTOEstablecimiento {
     ESTid : number;
     ESTnombre : string;
@@ -5,4 +7,6 @@ export class DTOEstablecimiento {
     ESTtelefono : number;
     ESTdireccion : string;
     ESTfotoPrincipal : string;
+    ESTlocalidad: string;
+    ESThabitaciones: DTOhabitacion;
 }

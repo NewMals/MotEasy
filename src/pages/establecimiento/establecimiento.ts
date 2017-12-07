@@ -79,7 +79,7 @@ export class EstablecimientoPage {
 
     for(var i = 1 ; i< 4 ; i++){
       var habitacion = new DTOhabitacion();
-      habitacion.HABid = i;
+      habitacion.HABid = this.ESTpage.;
       habitacion.HABestablecimiento = this.ESTpage.ESTid;
       this.arrayTipoHabitacion.forEach(tipoHabitacion => {
         if(i == tipoHabitacion.TIHid)
