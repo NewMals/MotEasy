@@ -9,12 +9,13 @@ import { EstablecimientoPageModule } from "../pages/establecimiento/establecimie
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 import { MapaPageModule } from "../pages/mapa/mapa.module";
 import { LoginPageModule } from "../pages/login/login.module";
-import { AuthProvider } from "../providers/auth/auth";
+import { AuthProvider } from "../providers/auth/authService";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule, AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { Facebook } from "@ionic-native/facebook";
 import { GooglePlus } from "@ionic-native/google-plus";
+import { AngularFirestoreModule } from "angularfire2/firestore";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASR-VQFfepVIDxJz_tLRzK7mrJNz_MtB0",
@@ -36,6 +37,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     EstablecimientoPageModule,
     HabitacionPageModule,
     LoginPageModule,

@@ -15,7 +15,7 @@
             <img src="assets/icon/romantic-hotel.png">
         </ion-col>
         <ion-col class="VwEstEspeciales">
-              <label >Cll 69 Sur # 9b 28 {{direccion}}</label>
+              <label >{{ESTview.ESTdireccion}}</label>
         </ion-col>
       </ion-row>
       <ion-row class="VwEstCont">
@@ -23,7 +23,7 @@
               <img src="assets/icon/telephone.png">
           </ion-col>
           <ion-col class="VwEstEspeciales">
-              <label >(031) 4778161 {{numContacto}}</label>
+              <label >{{ESTview.ESTtelefono | phone}}</label>
           </ion-col>
       </ion-row>
     </ion-col>

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { EstablecimientoPage } from "../establecimiento/establecimiento";
 import { Observable } from "rxjs/Observable";
 import { AngularFireDatabase } from "angularfire2/database";
+import { EstablecimientoProvider } from "../../providers/establecimiento/establecimientoService";
 
 @IonicPage({
   name: 'HomePage'
@@ -12,11 +13,12 @@ import { AngularFireDatabase } from "angularfire2/database";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
   
   //Establecimiento = new Establecimiento;
   //ArrayEST : Array<DTOEstablecimiento> = new Array<DTOEstablecimiento>();
-  ArrayEST : Observable<any[]>;
+  //private ColletionEST: AngularFirestoreCollection<any>;
+  ArrayEST : any[];
 
   ejemploSlide: any = [
     { id: 1 , PIC: "https://candela-500700.c.cdn77.org/wp-content/uploads/2016/10/images_2016_09_10_motel0.jpg" }
@@ -26,11 +28,22 @@ export class HomePage {
   
 
   constructor(public navCtrl: NavController
-    , afDB: AngularFireDatabase
+    //, afDB: AngularFireDatabase
+    , private ESTservice: EstablecimientoProvider
   ) {
       //this.ejemplo();
-        this.ArrayEST = afDB.list('/Establecimientos').valueChanges();
-        console.log('arreglo',this.ArrayEST);
+        //this.ArrayEST = afDB.list('/Establecimientos').valueChanges();
+        // this.ColletionEST = afs.collection('/Establecimientos');
+        // console.log('arreglo',this.ColletionEST);
+        // this.ArrayEST = this.ColletionEST.valueChanges();  
+        
+  }
+
+  ngOnInit(){
+    this.ESTservice.getEstablecimientos().subscribe(establecimiento =>{
+      this.ArrayEST = establecimiento;
+      console.log(this.ArrayEST);
+    });
   }
 
   ejemplo(){

@@ -9,6 +9,8 @@ import { InformacionHabitacionComponent } from './habitacion/informacion-habitac
 import { InformacionTarifasComponent } from './tarifa/informacion-tarifas/informacion-tarifas';
 import { InformacionEntretenimientoComponent } from './entretenimiento/informacion-entretenimiento/informacion-entretenimiento';
 import { InformacionComplementosComponent } from './complementos/informacion-complementos/informacion-complementos';
+import { PipesModule } from '../pipes/pipes.module';
+
 @NgModule({
 	declarations: [
 		FiltroGeneralComponent,
@@ -19,11 +21,13 @@ import { InformacionComplementosComponent } from './complementos/informacion-com
     InformacionHabitacionComponent,
     InformacionTarifasComponent,
     InformacionEntretenimientoComponent,
-    InformacionComplementosComponent
+    InformacionComplementosComponent,
+    
 	],
 	imports: [
 		IonicModule,
-		IonicPageModule
+    IonicPageModule,
+    PipesModule
 	],
 	exports: [
 		FiltroGeneralComponent,
@@ -35,6 +39,6 @@ import { InformacionComplementosComponent } from './complementos/informacion-com
     InformacionTarifasComponent,
     InformacionEntretenimientoComponent,
     InformacionComplementosComponent
-	]
+  ]
 })
 export class ComponentsModule {}

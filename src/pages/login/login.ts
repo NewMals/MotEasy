@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 // import { AngularFireAuth } from 'angularfire2/auth';
 // import * as firebase from 'firebase/app';
 import { Facebook } from "@ionic-native/facebook";
-import { AuthProvider } from "../../providers/auth/auth";
+import { AuthProvider } from "../../providers/auth/authService";
 
 
 @IonicPage({
