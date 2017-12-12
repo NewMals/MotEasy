@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
-import { DTOhabitacion, DTOtipoHabitacion } from "../../modelos/DTOhabitacion";
+import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { HabitacionPage } from "../habitacion/habitacion";
 import { DTOtarifas } from "../../modelos/DTOtarifas";
 
@@ -22,7 +22,7 @@ import { DTOtarifas } from "../../modelos/DTOtarifas";
 export class EstablecimientoPage {
 
   ESTpage : DTOEstablecimiento; 
-  ArrayHAB : Array<DTOhabitacion> = new Array<DTOhabitacion>();
+  ArrayHAB : Array<DTOHabitaciontipo> = new Array<DTOHabitaciontipo>();
 
   ejemploSlide: any = [
     { id: 1 , PIC: "http://vmotelboutique.com/wp-content/uploads/2014/07/junior_villa_1_motelv1.jpg" }
@@ -30,7 +30,7 @@ export class EstablecimientoPage {
     , { id: 3 , PIC: "https://losmoteles.com/wp-content/uploads/2016/04/habitacion-presidencial-motel-sabores-e1461461958710.jpg" }
   ];
 
-  arrayTipoHabitacion : Array<DTOtipoHabitacion> = new Array<DTOtipoHabitacion>();
+  arrayTipoHabitacion : Array<DTOHabitaciontipo> = new Array<DTOHabitaciontipo>();
   arrayTarifas : Array<DTOtarifas> = new Array<DTOtarifas>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -39,8 +39,9 @@ export class EstablecimientoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PageEstablecimientoPage');
-    this.ejemplo();
-    console.log(this.ArrayHAB);
+    this.ArrayHAB = this.ESTpage.ESThabitacionesTipos ;
+    //this.ejemplo();
+    //console.log(this.ArrayHAB);
   }
 
   ejemplo(){

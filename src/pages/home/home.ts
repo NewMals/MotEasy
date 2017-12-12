@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   //Establecimiento = new Establecimiento;
   //ArrayEST : Array<DTOEstablecimiento> = new Array<DTOEstablecimiento>();
   //private ColletionEST: AngularFirestoreCollection<any>;
-  ArrayEST : any[];
+  ArrayEST : DTOEstablecimiento[];
 
   ejemploSlide: any = [
     { id: 1 , PIC: "https://candela-500700.c.cdn77.org/wp-content/uploads/2016/10/images_2016_09_10_motel0.jpg" }
@@ -36,14 +36,17 @@ export class HomePage implements OnInit {
         // this.ColletionEST = afs.collection('/Establecimientos');
         // console.log('arreglo',this.ColletionEST);
         // this.ArrayEST = this.ColletionEST.valueChanges();  
-        
+        this.ESTservice.getEstablecimientos().subscribe(establecimiento =>{
+          this.ArrayEST = establecimiento;
+          //console.log('home',this.ArrayEST);
+        });
   }
 
   ngOnInit(){
-    this.ESTservice.getEstablecimientos().subscribe(establecimiento =>{
-      this.ArrayEST = establecimiento;
-      console.log(this.ArrayEST);
-    });
+    // this.ESTservice.getEstablecimientos().subscribe(establecimiento =>{
+    //   this.ArrayEST = establecimiento;
+    //   console.log(this.ArrayEST);
+    // });
   }
 
   ejemplo(){

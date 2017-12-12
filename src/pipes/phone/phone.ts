@@ -15,7 +15,7 @@ export class PhonePipe implements PipeTransform {
   transform(value: TelephoneNumber, args?: string): any {
     
     var cambio = new asYouType('US').input(value.toString())
-    console.log(cambio);
+    //console.log(cambio);
     return cambio;
     // if (!value) {
     //   return value;
