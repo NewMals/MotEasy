@@ -28,11 +28,15 @@ export class ItemHabitacionComponent implements OnInit {
   }
 
   cargar(){
+    if(this.HABitem.HTIfotos != undefined) {
       this.HABitem.HTIfotos.forEach(foto=>{
         if(foto.FOTprincipal){
           this.fotoPrincipal = foto.FOTurl;
         }
       });
+    }else{
+      this.fotoPrincipal = "";
+    }
   }
   
 

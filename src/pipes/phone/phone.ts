@@ -13,7 +13,7 @@ export class PhonePipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: TelephoneNumber, args?: string): any {
-    
+    value = (value != undefined) ? value : "";
     var cambio = new asYouType('US').input(value.toString())
     //console.log(cambio);
     return cambio;

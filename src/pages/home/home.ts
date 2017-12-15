@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
         // this.ArrayEST = this.ColletionEST.valueChanges();  
         this.ESTservice.getEstablecimientos().subscribe(establecimiento =>{
           this.ArrayEST = establecimiento;
-          //console.log('home',this.ArrayEST);
+          console.log('home',this.ArrayEST);
         });
   }
 
@@ -49,21 +49,21 @@ export class HomePage implements OnInit {
     // });
   }
 
-  ejemplo(){
-    for(var i = 1 ; i< 4 ; i++){
-      var establecimiento = new DTOEstablecimiento();
-      establecimiento.ESTid = i;
-      establecimiento.ESTnombre = 'Amarte_' + i;
+  // ejemplo(){
+  //   for(var i = 1 ; i< 4 ; i++){
+  //     var establecimiento = new DTOEstablecimiento();
+  //     establecimiento.ESTid = i;
+  //     establecimiento.ESTnombre = 'Amarte_' + i;
       
-      this.ejemploSlide.forEach(element => {
-        if(i == element.id){
-          establecimiento.ESTfotoPrincipal = element.PIC;
-        } 
-      }); 
-      //this.ArrayEST.push(establecimiento);
-    }
+  //     this.ejemploSlide.forEach(element => {
+  //       if(i == element.id){
+  //         establecimiento.ESTfotoPrincipal = element.PIC;
+  //       } 
+  //     }); 
+  //     //this.ArrayEST.push(establecimiento);
+  //   }
     
-  }
+  // }
 
   IngresarEST(establecimiento){
       this.navCtrl.push(EstablecimientoPage, {

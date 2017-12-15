@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DTOEstablecimiento } from "../../../modelos/DTOEstablecimiento";
 
 /**
@@ -11,15 +11,34 @@ import { DTOEstablecimiento } from "../../../modelos/DTOEstablecimiento";
   selector: 'item-establecimiento',
   templateUrl: 'item-establecimiento.html'
 })
-export class ItemEstablecimientoComponent {
+export class ItemEstablecimientoComponent implements OnInit{
 
   text: string;
   @Input() ESTitem : DTOEstablecimiento;
+  fotoPrincipal: string;
 
   constructor() {
-    console.log('Hello ItemEstablecimientoComponent Component');
-    this.text = 'Hello World';
+    
   }
 
+  ngOnInit(){
+    this.cargar();
+  }
+
+  cargar(){
+
+    if(this.ESTitem.ESTfotos != undefined) {
+      this.ESTitem.ESTfotos.forEach(foto=>{
+        if(foto.FOTprincipal){
+          this.fotoPrincipal = foto.FOTurl;
+        }
+      });
+    }else{
+      this.fotoPrincipal = "";
+    }
+
+     
+  }
+  
  
 }
