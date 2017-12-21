@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import { Observable } from "rxjs/Observable";
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
@@ -18,7 +16,7 @@ export class EstablecimientoProvider {
   EST: Observable<DTOEstablecimiento[]>;
 
   constructor(public afs: AngularFirestore
-    , public http: Http) {
+  ) {
    this.ESTcolletion = this.afs.collection('/Establecimientos');
    this.EST = this.ESTcolletion.snapshotChanges().map(actions =>{
     
@@ -49,10 +47,5 @@ export class EstablecimientoProvider {
     return this.afs.collection('/Establecimientos/'+ idDocumento +'/Habitaciones').valueChanges();
   }
 
-  obtenerDistancia(){
-    var url = "https://maps.googleapis.com/maps/api/distancematrix/xml?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Vancouver+BC&mode=bicycling&language=fr-FR&key=AIzaSyC2uWKfdyE83hwcusrOlIOqW6UJf2cnGms"
-    this.http.get(url).subscribe(response =>{
-      console.log(response.json);
-    });
-  }
+  
 }

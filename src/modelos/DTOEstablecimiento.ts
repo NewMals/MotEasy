@@ -10,5 +10,11 @@ export class DTOEstablecimiento {
     ESTfotos : Array<DTOfoto>;
     ESTlocalidad: string;
     ESThabitacionesTipos: Array<DTOHabitaciontipo>;
+    ESTdistancia: string;
+    ESTgeolocalizacion: DTOposicion;
 }
 
+export class DTOposicion {
+    latitude: number;
+    longitude: number;
+}

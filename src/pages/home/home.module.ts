@@ -3,6 +3,8 @@ import { IonicPageModule } from "ionic-angular";
 import { HomePage } from "./home";
 import { ComponentsModule } from "../../components/components.module";
 import { EstablecimientoProvider } from "../../providers/establecimiento/establecimientoService";
+import { HttpModule } from "@angular/http";
+import { Geolocation } from "@ionic-native/geolocation";
 
 @NgModule({
     declarations: [
@@ -13,11 +15,13 @@ import { EstablecimientoProvider } from "../../providers/establecimiento/estable
         ComponentsModule
     ],
     exports: [
-        HomePage
+        HomePage,
+        HttpModule
     ],
     providers:[
         //AngularFirestore,
-        EstablecimientoProvider
+        EstablecimientoProvider,
+        Geolocation
     ]
 })
 export class HomeModule {}
