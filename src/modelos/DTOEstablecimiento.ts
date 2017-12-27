@@ -12,6 +12,7 @@ export class DTOEstablecimiento {
     ESThabitacionesTipos: Array<DTOHabitaciontipo>;
     ESTdistancia: string;
     ESTgeolocalizacion: DTOposicion;
+    ESTvalorMin: number;
 }
 
 export class DTOposicion {
