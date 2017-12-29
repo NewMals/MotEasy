@@ -23,7 +23,6 @@ export class ItemEstablecimientoComponent implements OnInit{
 
   ngOnInit(){
     this.cargar();
-    this.obtenerMenorPrecio();
   }
 
   cargar(){
@@ -37,25 +36,5 @@ export class ItemEstablecimientoComponent implements OnInit{
     }else{
       this.fotoPrincipal = "";
     }
-
-     
   }
-  
-  obtenerMenorPrecio(){
-    if(this.ESTitem.ESThabitacionesTipos != undefined) {
-      this.ESTitem.ESThabitacionesTipos.forEach( tipo => {        
-        if( this.ESTitem.ESTvalorMin <= 0){
-            this.ESTitem.ESTvalorMin = tipo.HTItarifaEstandar   
-        }
-        else{
-            this.ESTitem.ESTvalorMin = ( tipo.HTItarifaEstandar <= this.ESTitem.ESTvalorMin) ? tipo.HTItarifaEstandar : this.ESTitem.ESTvalorMin;
-        }              
-      });
-    }
-    else {
-      this.ESTitem.ESTvalorMin = 0;
-    }
-    
-  }
- 
 }
