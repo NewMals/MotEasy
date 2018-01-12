@@ -1,5 +1,5 @@
 import { DTOfoto } from "./DTOfoto";
-import { DTOentretenimiento } from "./DTOcomplementos";
+import { DTOentretenimiento, DTOcomplemento } from "./DTOcomplementos";
 
 export class DTOhabitacion {
     HABidentificacion : string;
@@ -12,7 +12,9 @@ export class DTOHabitaciontipo {
     HTIcantPersonasMax : number;
     HTItarifaEstandar : number;
     HTItarifaAdicional : number;
+    HTIfoto : string; 
     HTIfotos : Array<DTOfoto>;
     HTIentretenimiento : Array<DTOentretenimiento>;
+    HTIcomplemento : Array<DTOcomplemento>;
 }
 

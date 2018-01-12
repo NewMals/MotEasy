@@ -1,4 +1,4 @@
-export class DTOcomplementos {
+export class DTOcomplemento {
     COMid: string;
     COMdescripcion: string;
     COMfoto: string;

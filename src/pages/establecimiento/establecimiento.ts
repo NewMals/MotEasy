@@ -4,6 +4,7 @@ import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { HabitacionPage } from "../habitacion/habitacion";
 import { DTOtarifas } from "../../modelos/DTOtarifas";
+import { HabitacionProvider } from '../../providers/habitacion/habitacionService';
 
 /**
  * Generated class for the PageEstablecimientoPage page.
@@ -33,7 +34,9 @@ export class EstablecimientoPage {
   arrayTipoHabitacion : Array<DTOHabitaciontipo> = new Array<DTOHabitaciontipo>();
   arrayTarifas : Array<DTOtarifas> = new Array<DTOtarifas>();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController
+        , public navParams: NavParams
+        , private HABservice: HabitacionProvider) {
     this.ESTpage = this.navParams.get('ESTpri');
   }
 
@@ -97,10 +100,15 @@ export class EstablecimientoPage {
   //   } 
   // }
 
-  IngresarHAB(habitacion) {
-    this.navCtrl.push(HabitacionPage, {
-      HABpri: habitacion
+  IngresarHAB(tipo) {
+    
+    this.HABservice.getHabitacionTipo(this.ESTpage.ESTid, tipo.HTIid).subscribe(Habitacion =>{
+      this.navCtrl.push(HabitacionPage, {
+        HABpri: Habitacion
+      });
     });
+
+    
   }
 
 }

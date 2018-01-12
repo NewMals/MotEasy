@@ -17,6 +17,7 @@ import { Facebook } from "@ionic-native/facebook";
 import { GooglePlus } from "@ionic-native/google-plus";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { HabitacionProvider } from '../providers/habitacion/habitacionService';
+import { IonicStorageModule } from '@ionic/storage';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyASR-VQFfepVIDxJz_tLRzK7mrJNz_MtB0",
@@ -35,6 +36,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

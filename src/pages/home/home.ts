@@ -8,6 +8,8 @@ import { EstablecimientoProvider } from "../../providers/establecimiento/estable
 import { Api } from '../../providers/general/api';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Subscription } from 'rxjs/Subscription';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage({
   name: 'HomePage'
@@ -37,6 +39,7 @@ export class HomePage implements OnInit {
     , private ESTservice: EstablecimientoProvider
     , private api : Api
     , private geolocation : Geolocation
+    , private storage : Storage
   ) {
       //this.ejemplo();
         //this.ArrayEST = afDB.list('/Establecimientos').valueChanges();
@@ -45,12 +48,18 @@ export class HomePage implements OnInit {
         // this.ArrayEST = this.ColletionEST.valueChanges();  
           this.suscrito =  this.ESTservice.getEstablecimientos().subscribe(establecimientos =>{
           this.ArrayEST = establecimientos;
-          this.obtenerDistancia(this.ArrayEST[0].ESTgeolocalizacion.latitude, this.ArrayEST[0].ESTgeolocalizacion.longitude);
+
+          this.ArrayEST.forEach( index => {
+            storage.set(index.ESTnombre, index);
+          });
+          //this.obtenerDistancia(this.ArrayEST[0].ESTgeolocalizacion.latitude, this.ArrayEST[0].ESTgeolocalizacion.longitude);
           // this.ArrayEST.forEach(establecimiento => {
           //   console.log("est", establecimiento.ESTgeolocalizacion.latitude)
           //   //establecimiento.ESTdistancia = this.obtenerDistancia(establecimiento.ESTgeolocalizacion.latitud, establecimiento.ESTgeolocalizacion.longitud);
           // });
+
           console.log(this.ArrayEST);
+          this.suscrito.unsubscribe();
           //
         });
         
@@ -93,7 +102,7 @@ export class HomePage implements OnInit {
 
   obtenerDistancia(latitud, longitud) {
 
-    console.log("ubicacion", latitud,longitud);
+    //console.log("ubicacion", latitud,longitud);
     //let url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Vancouver+BC&mode=bicycling&language=fr-FR&key=AIzaSyC2uWKfdyE83hwcusrOlIOqW6UJf2cnGms"
     
      
@@ -102,12 +111,14 @@ export class HomePage implements OnInit {
         url += "?origins=" + response.coords.latitude + "," + response.coords.longitude;
         url += "&destinations=" + latitud + "," + longitud;
         //url += "&key=AIzaSyC2uWKfdyE83hwcusrOlIOqW6UJf2cnGms";
+        
         console.log(url);
         this.api.get(url).subscribe(response =>{
             let distancia = response.json() as any;
-            console.log(distancia);
             this.ArrayEST[0].ESTdistancia = distancia.rows[0].elements[0].distance.text;
             url ="";
+
+            //console.log(this.ArrayEST[0].ESTdistancia);
         });
     });
     

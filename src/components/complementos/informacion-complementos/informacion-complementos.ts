@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DTOcomplemento } from '../../../modelos/DTOcomplementos';
 
 /**
  * Generated class for the InformacionComplementosComponent component.
@@ -13,6 +14,7 @@ import { Component } from '@angular/core';
 export class InformacionComplementosComponent {
 
   text: string;
+  @Input() COMinf: DTOcomplemento; 
 
   constructor() {
     console.log('Hello InformacionComplementosComponent Component');

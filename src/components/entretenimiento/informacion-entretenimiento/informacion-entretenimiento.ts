@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input,  } from '@angular/core';
+import { DTOentretenimiento } from '../../../modelos/DTOcomplementos';
 
 /**
  * Generated class for the InformacionEntretenimientoComponent component.
@@ -13,6 +14,7 @@ import { Component } from '@angular/core';
 export class InformacionEntretenimientoComponent {
 
   text: string;
+  @Input() ENTinf: DTOentretenimiento; 
 
   constructor() {
     console.log('Hello InformacionEntretenimientoComponent Component');

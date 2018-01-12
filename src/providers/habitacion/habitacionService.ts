@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { DTOHabitaciontipo } from '../../modelos/DTOhabitacion';
 
 /*
   Generated class for the HabitacionProvider provider.
@@ -11,8 +14,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HabitacionProvider {
  
-  constructor(public http: Http) {
-    console.log('Hello HabitacionProvider Provider');
+  
+  constructor(public afs: AngularFirestore) {
+   
   }
 
+
+  getHabitacionTipo(idDocumento, idHabitacion): Observable<any>{
+    return this.afs.collection('/Establecimientos/'+ idDocumento +'/HabitacionTipos').doc('/' + idHabitacion).valueChanges();
+  }
 }

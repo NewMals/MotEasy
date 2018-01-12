@@ -15,7 +15,7 @@ export class ItemHabitacionComponent implements OnInit {
 
   text: string;
   @Input() HABitem : DTOHabitaciontipo;
-  fotoPrincipal: string;
+  //fotoPrincipal: string;
 
   constructor() {
     // console.log('Hello ItemHabitacionComponent Component');
@@ -24,20 +24,20 @@ export class ItemHabitacionComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.cargar();
+    //this.cargar();
   }
 
-  cargar(){
-    if(this.HABitem.HTIfotos != undefined) {
-      this.HABitem.HTIfotos.forEach(foto=>{
-        if(foto.FOTprincipal){
-          this.fotoPrincipal = foto.FOTurl;
-        }
-      });
-    }else{
-      this.fotoPrincipal = "";
-    }
-  }
+  // cargar(){
+  //   if(this.HABitem.HTIfotos != undefined) {
+  //     this.HABitem.HTIfotos.forEach(foto=>{
+  //       if(foto.FOTprincipal){
+  //         this.fotoPrincipal = foto.FOTurl;
+  //       }
+  //     });
+  //   }else{
+  //     this.fotoPrincipal = "";
+  //   }
+  // }
   
 
 }

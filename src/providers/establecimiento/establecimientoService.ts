@@ -3,6 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firest
 import { Observable } from "rxjs/Observable";
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
 import { DTOHabitaciontipo, DTOhabitacion } from '../../modelos/DTOhabitacion';
+import { query } from '@angular/core/src/animation/dsl';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import { global } from '../../global';
 /*
   Generated class for the EstablecimientoProvider provider.
 
@@ -13,26 +16,14 @@ import { DTOHabitaciontipo, DTOhabitacion } from '../../modelos/DTOhabitacion';
 export class EstablecimientoProvider {
 
   ESTcolletion: AngularFirestoreCollection<DTOEstablecimiento>;
-  EST: Observable<DTOEstablecimiento[]>;
+  EST: Observable<any>;
+  posicion: any = { latitude : 4.564938810824294};
+
 
   constructor(public afs: AngularFirestore
+    , private geolocation : Geolocation
   ) {
-   this.ESTcolletion = this.afs.collection('/Establecimientos');
-   this.EST = this.ESTcolletion.snapshotChanges().map(actions =>{
-    
-      return actions.map(a => {
-        const data = a.payload.doc.data() as any;
-        data.ESTid = a.payload.doc.id;
-
-        this.obtenerHabitacionTipos(data.ESTid).subscribe( coleccion =>{
-            data.ESThabitacionesTipos = coleccion as DTOHabitaciontipo[];            
-        });
-        // this.obtenerHabitacion(data.id).subscribe( coleccion =>{
-        //   data.ESThabitaciones = coleccion as DTOhabitacion[];
-        // });
-        return data;
-      });
-    });
+   this.consultaInical(); 
   }
 
   getEstablecimientos(){
@@ -48,4 +39,46 @@ export class EstablecimientoProvider {
   }
 
   
+  localizarPosicion(){
+    this.geolocation.watchPosition().subscribe(response => {
+      
+      console.log("actual",response.coords.latitude, response.coords.longitude);
+      console.log("suma", response.coords.latitude + global.lat5km, response.coords.longitude + global.long5km);
+      console.log("resta",response.coords.latitude - global.lat5km, response.coords.longitude - global.long5km);
+      //this.posicion =  response; 
+      return this.consultaInical();
+    });
+
+  }
+
+  consultaInical(){
+
+    console.log(this.posicion);
+    this.ESTcolletion = this.afs.collection('/Establecimientos'
+      , query => query
+                  
+      //.orderBy("ESTciudad")
+                  //.where("ESTgeolocalizacion", "==", this.posicion.latitude)
+                  //.where("ESTciudad","==", "Cali")  
+    )
+     ;
+    
+    this.EST = this.ESTcolletion
+    .snapshotChanges().map(actions =>{
+     
+        return actions.map(a => {
+         const data = a.payload.doc.data() as any;
+         data.ESTid = a.payload.doc.id;
+ 
+        //  this.obtenerHabitacionTipos(data.ESTid).subscribe( coleccion =>{
+        //      data.ESThabitacionesTipos = coleccion as DTOHabitaciontipo[];            
+        //  });
+         //data.ESThabitacionesTipos = new DTOHabitaciontipo;
+         // this.obtenerHabitacion(data.id).subscribe( coleccion =>{
+         //   data.ESThabitaciones = coleccion as DTOhabitacion[];
+         // });
+        return data;
+       });
+    });
+  }
 }

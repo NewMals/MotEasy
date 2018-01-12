@@ -17,11 +17,11 @@
   <!-- <informacion-tarifas [ArrayTaf]="HABpage.HABtipo.TIHtarifa"></informacion-tarifas> -->
   <br>
   <ion-row class="HabGlo"> 
-    <ion-col>
-    <informacion-complementos></informacion-complementos>
+    <ion-col *ngFor="let complemento of COM">
+    <informacion-complementos [COMinf]="complemento"></informacion-complementos>
     </ion-col>
-    <ion-col>
-      <informacion-entretenimiento></informacion-entretenimiento>
+    <ion-col *ngFor="let entretenimiento of ENT">
+      <informacion-entretenimiento [ENTinf]="entretenimiento"></informacion-entretenimiento>
     </ion-col>
   </ion-row>
 </ion-content>

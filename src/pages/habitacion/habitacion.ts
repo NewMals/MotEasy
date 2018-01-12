@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { MapaPage } from "../mapa/mapa";
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
-import { DTOentretenimiento } from '../../modelos/DTOcomplementos';
+import { DTOentretenimiento, DTOcomplemento } from '../../modelos/DTOcomplementos';
 import { Observable } from 'rxjs/Observable';
 
 /**
@@ -21,24 +21,46 @@ import { Observable } from 'rxjs/Observable';
 export class HabitacionPage {
 
   HABpage : DTOHabitaciontipo;
-  HTIcolletion: AngularFirestoreCollection<DTOentretenimiento>;
-  HIT: Observable<DTOentretenimiento[]>;
+  HABcolletion: AngularFirestoreCollection<DTOentretenimiento>;
+  ENT = new Array<DTOentretenimiento>();
+  COM = new Array<DTOcomplemento>();
+  
+  ENTgeneral: Array<DTOentretenimiento> = [
+      { ENTid: "vggMKugfVHBuGAFVyqpD",  ENTdescripcion: "Jacuzzi", ENTfoto: "assets/icon/bathtub.png" , ENTorden: 1}
+  ];
 
-
+  COMgeneral: Array<DTOcomplemento> = [
+      { COMid: "GH67YQ7TLlyeoHKCO7M3", COMdescripcion: "Parqueadero" , COMfoto: "assets/icon/parking.png" , COMordern: 1}
+  ]
 
   constructor(public navCtrl: NavController
     , public navParams: NavParams
     , public afs: AngularFirestore
   ) {
     this.HABpage = this.navParams.get('HABpri');
-     this.HABpage.HTIentretenimiento.forEach(id =>{
-      // this.afs.doc('/Entretenimiento/'+ id).valueChanges().subscribe(entrenimiento =>{
+     this.HABpage.HTIentretenimiento.forEach(HTIent =>{
+       let id = HTIent as any;
+      // return this.afs.doc('/Entretenimiento/'+ id).valueChanges().subscribe(entrenimiento =>{
       //     id = entrenimiento as DTOentretenimiento;
-      //     this.HIT.push(id);
+      //     return this.ENT.push(id);
       // });
-        this.afs.doc('/Entretenimiento/'+ id).valueChanges();
+        this.ENTgeneral.forEach(ent =>{
+            if(id == ent.ENTid)
+              this.ENT.push(ent);
+        });
     });
 
+    this.HABpage.HTIcomplemento.forEach(HTIcom =>{
+      let id = HTIcom as any;
+      // return this.afs.doc('/Complementos/'+ id).valueChanges().subscribe(complemento =>{
+      //     id = complemento as DTOcomplemento;
+      //     return this.COM.push(id);
+      // });
+      this.COMgeneral.forEach(com =>{
+          if(id == com.COMid)
+            this.COM.push(com);
+      });
+    });
   }
 
   ionViewDidLoad() {
