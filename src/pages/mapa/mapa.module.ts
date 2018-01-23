@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { MapaPage } from './mapa';
 import { ComponentsModule } from "../../components/components.module";
 import { GoogleMaps } from "@ionic-native/google-maps";
+import { MapaProvider } from '../../providers/mapa/mapaService';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     MapaPage,
   ],
   providers: [
+    MapaProvider,
     GoogleMaps
   ]
 })
