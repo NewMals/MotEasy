@@ -32,7 +32,7 @@ export class AuthProvider {
   
 
   this.loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Iniciando sesión'
   });
 
   afAuth.authState.subscribe((user: firebase.User) => {

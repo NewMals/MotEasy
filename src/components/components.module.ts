@@ -10,6 +10,7 @@ import { InformacionTarifasComponent } from './tarifa/informacion-tarifas/inform
 import { InformacionEntretenimientoComponent } from './entretenimiento/informacion-entretenimiento/informacion-entretenimiento';
 import { InformacionComplementosComponent } from './complementos/informacion-complementos/informacion-complementos';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalCargandoComponent } from './modal-cargando/modal-cargando';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { PipesModule } from '../pipes/pipes.module';
     InformacionTarifasComponent,
     InformacionEntretenimientoComponent,
     InformacionComplementosComponent,
+    ModalCargandoComponent,
     
 	],
 	imports: [
@@ -38,7 +40,11 @@ import { PipesModule } from '../pipes/pipes.module';
     InformacionHabitacionComponent,
     InformacionTarifasComponent,
     InformacionEntretenimientoComponent,
-    InformacionComplementosComponent
+    InformacionComplementosComponent,
+    ModalCargandoComponent
+  ], 
+  entryComponents:[
+    ModalCargandoComponent
   ]
 })
 export class ComponentsModule {}

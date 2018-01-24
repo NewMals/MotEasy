@@ -5,6 +5,7 @@ import { MapaPage } from "../mapa/mapa";
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { DTOentretenimiento, DTOcomplemento } from '../../modelos/DTOcomplementos';
 import { Observable } from 'rxjs/Observable';
+import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
 
 /**
  * Generated class for the HabitacionPage page.
@@ -21,6 +22,7 @@ import { Observable } from 'rxjs/Observable';
 export class HabitacionPage {
 
   HABpage : DTOHabitaciontipo;
+  EST: DTOEstablecimiento;
   HABcolletion: AngularFirestoreCollection<DTOentretenimiento>;
   ENT = new Array<DTOentretenimiento>();
   COM = new Array<DTOcomplemento>();
@@ -38,6 +40,7 @@ export class HabitacionPage {
     , public afs: AngularFirestore
   ) {
     this.HABpage = this.navParams.get('HABpri');
+    this.EST = this.navParams.get('EST');
      this.HABpage.HTIentretenimiento.forEach(HTIent =>{
        let id = HTIent as any;
       // return this.afs.doc('/Entretenimiento/'+ id).valueChanges().subscribe(entrenimiento =>{

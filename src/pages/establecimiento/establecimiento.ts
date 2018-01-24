@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { HabitacionPage } from "../habitacion/habitacion";
 import { DTOtarifas } from "../../modelos/DTOtarifas";
 import { HabitacionProvider } from '../../providers/habitacion/habitacionService';
+import { MapaPage } from '../mapa/mapa';
+import { ModalCargandoComponent } from '../../components/modal-cargando/modal-cargando';
 
 /**
  * Generated class for the PageEstablecimientoPage page.
@@ -24,6 +26,7 @@ export class EstablecimientoPage {
 
   ESTpage : DTOEstablecimiento; 
   ArrayHAB : Array<DTOHabitaciontipo> = new Array<DTOHabitaciontipo>();
+  loading;
 
   ejemploSlide: any = [
     { id: 1 , PIC: "http://vmotelboutique.com/wp-content/uploads/2014/07/junior_villa_1_motelv1.jpg" }
@@ -36,6 +39,7 @@ export class EstablecimientoPage {
 
   constructor(public navCtrl: NavController
         , public navParams: NavParams
+        , public loadingCtrl: ModalController
         , private HABservice: HabitacionProvider) {
     this.ESTpage = this.navParams.get('ESTpri');
   }
@@ -101,11 +105,19 @@ export class EstablecimientoPage {
   // }
 
   IngresarHAB(tipo) {
-    
+    this.loading = this.loadingCtrl.create(ModalCargandoComponent);
+
+    this.loading.present();
+
     this.HABservice.getHabitacionTipo(this.ESTpage.ESTid, tipo.HTIid).subscribe(Habitacion =>{
       this.navCtrl.push(HabitacionPage, {
-        HABpri: Habitacion
+        HABpri: Habitacion, 
+        EST: this.ESTpage
+      },
+      { animation: 'true'} ).then(succes => {
+          this.loading.dismiss();
       });
+
     });
 
     

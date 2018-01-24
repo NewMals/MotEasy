@@ -16,6 +16,6 @@ export class FiltroGeneralComponent {
   }
 
   abrirMapa(){
-    this.navCtrl.push(MapaPage);
+    this.navCtrl.setRoot(MapaPage);
   }
 }
