@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, LatLng, CameraPosition, GoogleMapsEvent, MarkerOptions, MyLocationOptions, CircleOptions, Circle, GoogleMapOptions, MarkerIcon, MarkerClusterOptions } from "@ionic-native/google-maps";
 import { Storage } from '@ionic/storage';
 
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
 import { EstablecimientoPage } from '../establecimiento/establecimiento';
+import { MapaProvider } from '../../providers/mapa/mapaService';
+
 /**
  * Generated class for the MapaPage page.
  *
@@ -19,13 +21,15 @@ import { EstablecimientoPage } from '../establecimiento/establecimiento';
 })
 export class MapaPage {
 
-  map: GoogleMap;
-  mapaCreado : boolean = false;
-  //element: HTMLElement = document.getElementById('map');
+  @ViewChild('map') mapElement: ElementRef;
+  // map: GoogleMap;
+  // mapaCreado : boolean = false;
+  //element: HTMLElement ;
   marcas = new Array<{markerOptions: MarkerOptions, establecimiento: DTOEstablecimiento}>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public googleMaps: GoogleMaps
+    //public googleMaps: GoogleMaps
+    public googleMaps: MapaProvider 
     , private storage: Storage
     ) {
       //this.crearMapa();
@@ -35,20 +39,32 @@ export class MapaPage {
   }
 
   ionViewDidLoad() {
-    
-    console.log("meotodo ionvw en la clase mapa");
-    this.agregarmarcas().then(map => {
-      this.crearMapa();
+    this.googleMaps.iniciar(this.mapElement.nativeElement).then(() =>{
+        this.agregarmarcas().then(()=> {
+              this.googleMaps.actualizarMarcas(this.marcas);
+        });
     });
-    
+    //this.element = document.getElementById('map');
 
+    // if (!this.element.getAttribute('__pluginMapId')) {
+    //  this.crearMapa();
+    //   console.log(this.element);
+    //   this.agregarmarcas().then(() => {
+    //     this.cargarMarcas();
+    //   });
+    // }
+    // else {
+    //   this.map = new GoogleMap(this.element);
+    //   console.log(this.map);
+    //   //this.crearMapa();
+    // }    
       
   }
 
   ionViewWillUnload() {
     console.log("salir de mapa");
     
-    this.map.destroy();
+    
     //document.getElementById('map').innerHTML ="";
   }
 
@@ -124,8 +140,6 @@ export class MapaPage {
   // }
 
   crearMapa(){
-    //this.agregarmarcas().then(() => {
-    var parent = this;
     let element: HTMLElement = document.getElementById('map');
     let option: GoogleMapOptions = {
         mapType: 'MAP_TYPE_ROADMAP',
@@ -216,40 +230,43 @@ export class MapaPage {
         ]
       }
    
-    console.log("generar mapa");
-    this.map = this.googleMaps.create(element, option);
-
-    let position: CameraPosition<any>;
-    position = {
-      zoom: 16,
-      tilt: 30
-    }
-
-
-
-
-
+    //this.map = this.googleMaps.create(element, option);
     
-      this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
-            this.map.getMyLocation().then(location =>{
-              // 
-              //   console.log("marcas", this.marcas);
-                this.marcas.forEach(marca => {
-                  this.map.addMarker(marca.markerOptions).then(index =>{
-                    console.log("index " +index.getId() ,index);
-                            index.on(GoogleMapsEvent.INFO_CLICK)
-                            .subscribe(() => {
-                              this.navCtrl.push(EstablecimientoPage, {
-                                ESTpri: marca.establecimiento
-                              });
-                            });
-                          });
-                });
-              //
-              position.target = location.latLng;
-              this.map.animateCamera(position);
-        });
-      });
+    console.log('creado',element);
+  
+
+  }
+
+
+  // cargarMarcas(){
+    
+  //   let position: CameraPosition<any>;
+  //   position = {
+  //     zoom: 13,
+  //     tilt: 30,
+  //     duration: 2500
+      
+  //   }
+  //     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
+  //           this.map.getMyLocation().then(location =>{
+  //             // 
+  //             //   console.log("marcas", this.marcas);
+  //               this.marcas.forEach(marca => {
+  //                 this.map.addMarker(marca.markerOptions).then(index =>{
+  //                   console.log("index " +index.getId() ,index);
+  //                           index.on(GoogleMapsEvent.INFO_CLICK)
+  //                           .subscribe(() => {
+  //                             this.navCtrl.push(EstablecimientoPage, {
+  //                               ESTpri: marca.establecimiento
+  //                             });
+  //                           });
+  //                         });
+  //               });
+  //             //
+  //             position.target = location.latLng;
+  //             this.map.animateCamera(position);
+  //       });
+  //     });
     //});
     // this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
 
@@ -355,7 +372,7 @@ export class MapaPage {
     // });
 
 
-  }
+  //}
 
    agregarmarcas(): Promise<boolean>{
 
