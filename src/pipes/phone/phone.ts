@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { format, ParsedNumber, asYouType, TelephoneNumber } from 'libphonenumber-js';
+import { asYouType, TelephoneNumber } from 'libphonenumber-js';
 /**
  * Generated class for the PhonePipe pipe.
  *

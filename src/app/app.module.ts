@@ -7,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
-import { MapaPageModule } from "../pages/mapa/mapa.module";
 import { LoginPageModule } from "../pages/login/login.module";
 import { AuthProvider } from "../providers/auth/authService";
 import { AngularFireModule } from "angularfire2";

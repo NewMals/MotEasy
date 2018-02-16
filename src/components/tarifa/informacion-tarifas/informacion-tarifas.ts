@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DTOhabitacion } from "../../../modelos/DTOhabitacion";
 import { DTOtarifas } from "../../../modelos/DTOtarifas";
 
 /**

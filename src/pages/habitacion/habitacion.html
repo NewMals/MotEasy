@@ -11,25 +11,30 @@
 </ion-header>
 
 
-<ion-content padding>
-  <view-habitacion [HABview]="HABpage"> </view-habitacion>
-  <informacion-habitacion [HABinf]="HABpage"></informacion-habitacion>
+<ion-content>
+  <ion-card>
+    <view-habitacion [HABview]="HABpage"> </view-habitacion>
+  </ion-card>
+  <ion-card>
+    <informacion-habitacion [HABinf]="HABpage"></informacion-habitacion>
+  </ion-card>
   <!-- <informacion-tarifas [ArrayTaf]="HABpage.HABtipo.TIHtarifa"></informacion-tarifas> -->
-  <br>
-  <ion-row class="HabGlo"> 
-    <ion-col *ngFor="let complemento of COM">
-    <informacion-complementos [COMinf]="complemento"></informacion-complementos>
-    </ion-col>
-    <ion-col *ngFor="let entretenimiento of ENT">
-      <informacion-entretenimiento [ENTinf]="entretenimiento"></informacion-entretenimiento>
-    </ion-col>
-  </ion-row>
+  <ion-card>
+    <ion-row class="HabGlo">
+      <ion-col *ngFor="let complemento of COM">
+        <informacion-complementos [COMinf]="complemento"></informacion-complementos>
+      </ion-col>
+      <ion-col *ngFor="let entretenimiento of ENT">
+        <informacion-entretenimiento [ENTinf]="entretenimiento"></informacion-entretenimiento>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar  style="text-align: center;">
-      <button (click)="abrirMapa()">
-        <ion-label>A romper Nalgas</ion-label>
-      </button>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-toolbar style="text-align: center;">
+    <button (click)="abrirMapa()">
+      <ion-label>A romper Nalgas</ion-label>
+    </button>
+  </ion-toolbar>
+</ion-footer>

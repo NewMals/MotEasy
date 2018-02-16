@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DTOhabitacion, DTOHabitaciontipo } from "../../../modelos/DTOhabitacion";
+import { DTOHabitaciontipo } from "../../../modelos/DTOhabitacion";
 
 /**
  * Generated class for the ViewHabitacionComponent component.

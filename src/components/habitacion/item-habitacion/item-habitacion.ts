@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DTOhabitacion, DTOHabitaciontipo } from "../../../modelos/DTOhabitacion";
+import { DTOHabitaciontipo } from "../../../modelos/DTOhabitacion";
 
 /**
  * Generated class for the ItemHabitacionComponent component.

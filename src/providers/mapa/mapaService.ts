@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { GoogleMaps, GoogleMapOptions, GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMapOptions, GoogleMap, GoogleMapsEvent, CameraPosition } from '@ionic-native/google-maps';
 import { EstablecimientoPage } from '../../pages/establecimiento/establecimiento';
 import { NavController, App } from 'ionic-angular';
 
@@ -31,10 +31,6 @@ export class MapaProvider {
   iniciar(mapElement: any): Promise<any> {
       this.mapElement = mapElement;
 
-      return this.cargarMapa();
-  }
-
-  cargarMapa(): Promise<any> {
     return new Promise((resolve) => {
         if(typeof google == 'undefined'){
             this.crearMapa();
@@ -140,8 +136,6 @@ export class MapaProvider {
   actualizarMarcas(marcas) {
     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
             this.map.getMyLocation().then(location =>{
-              // 
-              //   console.log("marcas", this.marcas);
                 marcas.forEach(marca => {
                   this.map.addMarker(marca.markerOptions).then(index =>{
                     console.log("index " +index.getId() ,index);
@@ -153,9 +147,16 @@ export class MapaProvider {
                             });
                           });
                 });
-              //
-              // position.target = location.latLng;
-              // this.map.animateCamera(position);
+              
+                let position: CameraPosition<any>;
+                  position = {
+                    zoom: 13,
+                    tilt: 30,
+                    duration: 1000, 
+                    target: location.latLng
+                  }
+
+              this.map.animateCamera(position);
         });
       });
     }

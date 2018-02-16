@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from "ionic-angular";
 import { MapaPage } from "../../pages/mapa/mapa";
+import { HomePage } from '../../pages/home/home';
 
 @Component({
   selector: 'filtro-general',
@@ -8,14 +9,19 @@ import { MapaPage } from "../../pages/mapa/mapa";
 })
 export class FiltroGeneralComponent {
 
-  text: string;
+
+
 
   constructor(public navCtrl: NavController) {
     console.log('Hello FiltroGeneralComponent Component');
-    this.text = 'Hello World';
   }
 
   abrirMapa(){
     this.navCtrl.setRoot(MapaPage);
   }
+
+  abrirLista(){
+    this.navCtrl.setRoot(HomePage);
+  }
+
 }

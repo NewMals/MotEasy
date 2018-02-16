@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, IonicPage } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
 import { EstablecimientoPage } from "../establecimiento/establecimiento";
-import { Observable } from "rxjs/Observable";
-import { AngularFireDatabase } from "angularfire2/database";
 import { EstablecimientoProvider } from "../../providers/establecimiento/establecimientoService";
 import { Api } from '../../providers/general/api';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -50,7 +48,7 @@ export class HomePage implements OnInit {
           this.ArrayEST = establecimientos;
 
           this.ArrayEST.forEach( index => {
-            storage.set(index.ESTnombre, index);
+            this.storage.set(index.ESTnombre, index);
           });
           //this.obtenerDistancia(this.ArrayEST[0].ESTgeolocalizacion.latitude, this.ArrayEST[0].ESTgeolocalizacion.longitude);
           // this.ArrayEST.forEach(establecimiento => {

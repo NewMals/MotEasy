@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import { Observable } from "rxjs/Observable";
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
-import { DTOHabitaciontipo, DTOhabitacion } from '../../modelos/DTOhabitacion';
-import { query } from '@angular/core/src/animation/dsl';
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation';
 import { global } from '../../global';
 /*
   Generated class for the EstablecimientoProvider provider.

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
+import { DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { MapaPage } from "../mapa/mapa";
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { DTOentretenimiento, DTOcomplemento } from '../../modelos/DTOcomplementos';
-import { Observable } from 'rxjs/Observable';
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
 
 /**

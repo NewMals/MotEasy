@@ -1,38 +1,38 @@
 <!-- Generated template for the ViewEstablecimientoComponent component -->
 <div class="VwEstGlo">
-    <ion-slides id={{ESTview.ESTfotos}} pager class="EstContent">
-      <div *ngFor="let foto of ESTview.ESTfotos">
-        <!-- <ion-slide *ngIf="ESTview.ESTid == s.id"> -->
-          <ion-slide>
-          <img src="{{foto.FOTurl}}" class="VwEstImg">
-        </ion-slide>
-      </div>
-    </ion-slides> 
-
-  <ion-row>
-    <ion-col>
-      <ion-row class="VwEstCont">
-        <ion-col style="max-width: 30px;">
-            <img src="assets/icon/romantic-hotel.png">
-        </ion-col>
-        <ion-col class="VwEstEspeciales">
-              <label >{{ESTview.ESTdireccion}}</label>
-        </ion-col>
-      </ion-row>
-      <ion-row class="VwEstCont">
+  <ion-slides id={{ESTview.ESTfotos}} pager class="EstContent">
+    <div *ngFor="let foto of ESTview.ESTfotos">
+      <!-- <ion-slide *ngIf="ESTview.ESTid == s.id"> -->
+      <ion-slide>
+        <img src="{{foto.FOTurl}}" class="VwEstImg">
+      </ion-slide>
+    </div>
+  </ion-slides>
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-row class="VwEstCont">
           <ion-col style="max-width: 30px;">
-              <img src="assets/icon/telephone.png">
+            <img src="assets/icon/romantic-hotel.png">
           </ion-col>
           <ion-col class="VwEstEspeciales">
-              <label >{{ESTview.ESTtelefono | phone}}</label>
+            <label>{{ESTview.ESTdireccion}}</label>
           </ion-col>
-      </ion-row>
-    </ion-col>
-    <ion-col style="text-align: right; max-width: 50px; margin: auto; padding-right: 10px;" (click)="modFavorito()">
+        </ion-row>
+        <ion-row class="VwEstCont">
+          <ion-col style="max-width: 30px;">
+            <img src="assets/icon/telephone.png">
+          </ion-col>
+          <ion-col class="VwEstEspeciales">
+            <label>{{ESTview.ESTtelefono | phone}}</label>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col style="text-align: right; max-width: 50px; margin: auto; padding-right: 10px;" (click)="modFavorito()">
         <ion-label>
           <img src="{{ favorito ? 'assets/icon/big-heart.png' : 'assets/icon/heart.png' }}">
         </ion-label>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
 </div>
-

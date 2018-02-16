@@ -1,15 +1,17 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+      <ion-title>
       <filtro-general></filtro-general>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-<div *ngFor="let establecimiento of ArrayEST">
-  <ion-list>
-    <item-establecimiento [ESTitem]="establecimiento" (click)="IngresarEST(establecimiento)"></item-establecimiento>
-  </ion-list>
-</div>
+<ion-content>
+  <div *ngFor="let establecimiento of ArrayEST">
+    <ion-card>
+      <ion-list>
+        <item-establecimiento [ESTitem]="establecimiento" (click)="IngresarEST(establecimiento)"></item-establecimiento>
+      </ion-list>
+    </ion-card>
+  </div>
 </ion-content>

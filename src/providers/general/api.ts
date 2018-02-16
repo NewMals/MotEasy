@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, URLSearchParams ,Headers, RequestMethod } from '@angular/http';
+import { Http, RequestOptions, Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 /**
  * Api is a generic REST Api handler. Set your API url first.

@@ -1,13 +1,13 @@
 <!-- Generated template for the ItemEstablecimientoComponent component -->
 <div class="ItEstGlo">
     <img src="{{fotoPrincipal}}" class="ItEstImg">
+    <ion-card-content>
     <ion-row class="ItEstCont">
         <ion-col style="text-align: left; ">
             <label>{{ESTitem.ESTnombre}}</label>
         </ion-col>
         <ion-col style="text-align: right; max-width: 40%;">
             <label class="ItEstEspeciales"> desde </label> {{ESTitem.ESTvalorMin | currency:'USD':true:'.0'}} 
-            <!--{{ | currency:'USD':true:'.0'}} -->
         </ion-col>
     </ion-row>
     <ion-row>
@@ -23,6 +23,7 @@
         <ion-col style=" max-width: 20%">
             <label class="ItEstEspeciales"> {{ESTitem.ESTdistancia}} </label>
         </ion-col>
-    </ion-row>            
+    </ion-row>   
+    </ion-card-content>         
 </div>
 

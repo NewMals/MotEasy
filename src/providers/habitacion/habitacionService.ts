@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { DTOHabitaciontipo } from '../../modelos/DTOhabitacion';
 
 /*
   Generated class for the HabitacionProvider provider.

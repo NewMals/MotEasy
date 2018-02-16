@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DTOEstablecimiento } from "../../modelos/DTOEstablecimiento";
-import { DTOhabitacion, DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
+import { DTOHabitaciontipo } from "../../modelos/DTOhabitacion";
 import { HabitacionPage } from "../habitacion/habitacion";
 import { DTOtarifas } from "../../modelos/DTOtarifas";
 import { HabitacionProvider } from '../../providers/habitacion/habitacionService';
-import { MapaPage } from '../mapa/mapa';
 import { ModalCargandoComponent } from '../../components/modal-cargando/modal-cargando';
 
 /**

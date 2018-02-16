@@ -1,12 +1,15 @@
-<div>
-  <ion-row>
-  <ion-col style="padding: 0px; margin: auto;">
-      <ion-searchbar placeholder="Buscar"></ion-searchbar>  
+<ion-row  style="margin: auto ; text-align: center">
+  <ion-col >
+  <button ion-button icon-left round style="background-color: dodgerblue"  (click)="abrirLista()">
+    <ion-icon name="list-box" style=" font-size: 30px"></ion-icon>
+    Lista
+  </button>
+</ion-col>
+<ion-col >
+  <button ion-button icon-left round style="background-color: midnightblue"  (click)="abrirMapa()" >
+      <ion-icon name="md-globe" style=" font-size: 30px"></ion-icon>
+      <!-- <ion-icon ><img ion-fab mini src="assets/icon/local-search.png"></ion-icon> -->
+      Mapa
+    </button>
   </ion-col>
-  <ion-col style="padding: 2px; max-width: 40px;">
-      <label ion-fab mini (click)="abrirMapa()" >
-        <img src="assets/icon/local-search.png" class="FilGenImg" >
-      </label>
-  </ion-col>
-  </ion-row>
-</div>
+</ion-row>
