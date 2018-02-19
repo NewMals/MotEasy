@@ -135,7 +135,19 @@ export class MapaProvider {
 
   actualizarMarcas(marcas) {
     this.map.one(GoogleMapsEvent.MAP_READY).then(()=>{
-            this.map.getMyLocation().then(location =>{
+
+      
+            this.map.getMyLocation().then(location =>{      
+              
+                let position: CameraPosition<any>;
+                  position = {
+                    zoom: 13,
+                    tilt: 30,
+                    duration: 1000, 
+                    target: location.latLng
+                  }
+
+              this.map.animateCamera(position).then(() =>{
                 marcas.forEach(marca => {
                   this.map.addMarker(marca.markerOptions).then(index =>{
                     console.log("index " +index.getId() ,index);
@@ -147,16 +159,7 @@ export class MapaProvider {
                             });
                           });
                 });
-              
-                let position: CameraPosition<any>;
-                  position = {
-                    zoom: 13,
-                    tilt: 30,
-                    duration: 1000, 
-                    target: location.latLng
-                  }
-
-              this.map.animateCamera(position);
+              });
         });
       });
     }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 // import { AngularFireAuth } from 'angularfire2/auth';
 // import * as firebase from 'firebase/app';
-import { AuthProvider } from "../../providers/auth/authService";
+import { AuthProvider } from "../../providers/general/authService";
 
 
 @IonicPage({

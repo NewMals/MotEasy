@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 import { EstablecimientoPageModule } from "../pages/establecimiento/establecimiento.module";
 import { HabitacionPageModule } from "../pages/habitacion/habitacion.module";
 import { LoginPageModule } from "../pages/login/login.module";
-import { AuthProvider } from "../providers/auth/authService";
+import { AuthProvider } from "../providers/general/authService";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule, AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuthModule } from "angularfire2/auth";

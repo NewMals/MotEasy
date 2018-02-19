@@ -71,3 +71,10 @@ cordova build android --release -- --keystore="\debug-key.keystore" --storePassw
     npm install --save-dev @compodoc/compodoc
     npm run compodoc
  ```
+
+ ### Sesion servicio Google
+ ```sh 
+    Debug
+    * "C:\Program Files (x86)\Java\jdk1.8.0_131\bin\keytool.exe" -exportcert -list -v -alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore 
+    Clave: android , elegir el resultado de SHA1
+ ```
