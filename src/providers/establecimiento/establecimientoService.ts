@@ -17,15 +17,14 @@ export class EstablecimientoProvider {
   EST: Observable<any>;
   posicion: any = { latitude: 4.564938810824294 };
 
-
   constructor(public afs: AngularFirestore
     , private geolocation: Geolocation
   ) {
     this.consultaInical();
-    console.log("peticiones");
   }
 
   getEstablecimientos() {
+    
     return this.EST;
   }
 
@@ -45,9 +44,9 @@ export class EstablecimientoProvider {
         console.log("actual", response.coords.latitude, response.coords.longitude);
         console.log("suma", response.coords.latitude + global.lat5km, response.coords.longitude + global.long5km);
         console.log("resta", response.coords.latitude - global.lat5km, response.coords.longitude - global.long5km);
-        this.posicion = { latitud : response.coords.latitude, longitud:response.coords.longitude }
+        this.posicion = { latitud: response.coords.latitude, longitud: response.coords.longitude }
 
-        localStorage.setItem("Posicion",JSON.stringify(this.posicion));
+        localStorage.setItem("Posicion", JSON.stringify(this.posicion));
 
       })
 
@@ -81,4 +80,7 @@ export class EstablecimientoProvider {
         });
       });
   }
+
+
+
 }

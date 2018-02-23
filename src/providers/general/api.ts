@@ -34,7 +34,7 @@ export class Api {
     req.headers = headers;
     //req.params = null;
 
-    return this.http.get(endpoint, req);
+    return this.http.get(endpoint, req).toPromise().then(response => response.json());
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {

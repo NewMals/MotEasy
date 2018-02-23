@@ -10,18 +10,24 @@ import { HomePage } from '../../pages/home/home';
 export class FiltroGeneralComponent {
 
 
-
+  Vista;
 
   constructor(public navCtrl: NavController) {
-    console.log('Hello FiltroGeneralComponent Component');
+    this.Vista = localStorage.getItem("Vista");
   }
 
-  abrirMapa(){
-    this.navCtrl.setRoot(MapaPage);
+  abrirMapa() {
+    if (this.Vista = "Mapa") {
+      this.navCtrl.setRoot(MapaPage);
+      localStorage.setItem("Vista", "Mapa");
+    }
   }
 
-  abrirLista(){
-    this.navCtrl.setRoot(HomePage);
+  abrirLista() {
+    if (this.Vista = "Lista") {
+      this.navCtrl.setRoot(HomePage);
+      localStorage.setItem("Vista", "Lista");
+    }
   }
 
 }

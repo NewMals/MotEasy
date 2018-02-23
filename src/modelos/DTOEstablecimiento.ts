@@ -11,6 +11,7 @@ export class DTOEstablecimiento {
     ESTlocalidad: string;
     ESThabitacionesTipos: Array<DTOHabitaciontipo>;
     ESTdistancia: string;
+    ESTduracion: string;
     ESTgeolocalizacion: DTOposicion;
     ESTvalorMin: number;
 }

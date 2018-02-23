@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 
 import { DTOEstablecimiento } from '../../modelos/DTOEstablecimiento';
 import { MapaProvider } from '../../providers/mapa/mapaService';
-
+declare var google;
 /**
  * Generated class for the MapaPage page.
  *
@@ -21,6 +21,7 @@ import { MapaProvider } from '../../providers/mapa/mapaService';
 export class MapaPage {
 
   @ViewChild('map') mapElement: ElementRef;
+  MyLocation: any;
   // map: GoogleMap;
   // mapaCreado : boolean = false;
   //element: HTMLElement ;
@@ -43,6 +44,9 @@ export class MapaPage {
               this.googleMaps.actualizarMarcas(this.marcas);
         });
     });
+
+    //this.calculateAndDisplayRoute();
+
     //this.element = document.getElementById('map');
 
     // if (!this.element.getAttribute('__pluginMapId')) {
@@ -399,5 +403,77 @@ export class MapaPage {
 
     }).then(() => {return true});
   }
+
+
+  calculateAndDisplayRoute() {
+    let that = this;
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer;
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 7,
+      center: {lat: 41.85, lng: -87.65}
+    });
+    directionsDisplay.setMap(map);
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+        that.MyLocation = new google.maps.LatLng(pos);
+
+      }, function() {
+
+      });
+    } else {
+      // Browser doesn't support Geolocation
+    }
+
+    var posd = {
+      lat: 4.564938810824294,
+      lng: -74.12605404853821
+    }
+
+    var destino = new google.maps.LatLng(posd);
+    var markerArray = [];
+
+
+    directionsService.route({
+    origin: new LatLng(4.564938810824294, -74.10605404853821),
+    destination: new LatLng(4.564938810824294, -74.12605404853821),
+    travelMode: 'DRIVING',
+    unitSystem: google.maps.UnitSystem.IMPERIAL
+  }, function(response, status) {
+    if (status === 'OK') {  
+      
+      directionsDisplay.setDirections(response);
+      var marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: {lat: 4.564938810824294, lng: -74.10605404853821}
+      });
+      marker.setMap(null);
+      console.log('objeto',response)
+
+      var myRoute = response.routes[0].legs[0];
+      
+        for (var i = 0; i < myRoute.steps.length; i++) {
+            var marker = new google.maps.Marker({
+              position: myRoute.steps[i].start_point,
+              map: map
+            });
+            
+        }
+
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+
+
 
 }
