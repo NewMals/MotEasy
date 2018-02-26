@@ -5,6 +5,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { Facebook } from "@ionic-native/facebook";
 import { GooglePlus } from '@ionic-native/google-plus';
 import * as firebase from 'firebase/app';
+import { Subscription } from 'rxjs/Subscription';
 /*
   Generated class for the AuthProvider provider.
 
@@ -31,13 +32,14 @@ export class AuthProvider {
     this.loading = this.loadingCtrl.create({
       content: 'Iniciando sesión'
     });
-
     afAuth.authState.subscribe((user: firebase.User) => {
       if (!user) {
         this.navCtrl.setRoot('LoginPage');
-        return;
+       
+      }else{
+        this.navCtrl.setRoot('HomePage');
+      
       }
-      this.navCtrl.setRoot('HomePage');
     });
   }
 

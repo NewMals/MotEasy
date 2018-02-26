@@ -8,9 +8,9 @@ import { AuthProvider } from '../providers/general/authService';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage;
+  rootPage = 'LoginPage';
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private auth: AuthProvider) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

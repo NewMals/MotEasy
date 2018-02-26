@@ -106,7 +106,8 @@ export class HomePage implements OnInit {
     this.storage.forEach((value: any, key: string, iterationNumber: Number) => {
       this.ArrayEST.push(value);
     }).then(() => {
-      if (this.ArrayEST.length < 0) {
+      
+      if (this.ArrayEST) {
           this.ESTservice.getEstablecimientos().subscribe(establecimientos => {
           this.ArrayEST = establecimientos;
 
@@ -125,7 +126,7 @@ export class HomePage implements OnInit {
     
                 this.storage.set(this.ArrayEST[i].ESTnombre, this.ArrayEST[i]);
               }
-            });
+            }).catch(error=> console.log(error));
           });
         });
       }
